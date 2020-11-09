@@ -1,0 +1,45 @@
+{
+  "name": "@tool/cli",
+  "version": "0.0.1",
+  "repository": "git@github.com:webedx-spark/web-dependency-migration.git",
+  "private": true,
+  "description": "core functionality for dependency migration for web",
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
+  "bin": {
+    "dependency-migration": "cli/index.js"
+  },
+  "engines": {
+    "node": ">10.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*": [
+      "pretty-quick --staged"
+    ],
+    "*.ts": [
+      "eslint --fix",
+      "bash -c \"npm run build\""
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": true,
+    "printWidth": 120
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "esbuild --bundle ./index.ts --platform=node --target=node12 --main-fields=main --outdir=cli"
+  },
+  "author": "Gago <xeroice@gmail.com>",
+  "dependencies": {
+    "commander": "6.2.0",
+    "cosmiconfig": "7.0.0",
+    "debug": "4.2.0",
+    "ora": "5.1.0"
+  }
+}
