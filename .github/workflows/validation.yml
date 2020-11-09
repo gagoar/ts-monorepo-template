@@ -15,7 +15,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: ESLint
-        run: npm run lint
+        run: yarn run lint
   test:
     name: Run unit tests
     runs-on: ubuntu-latest
@@ -26,7 +26,7 @@ jobs:
         with:
           node-version: 12.x
       - name: Install dependencies
-        run: npm install
+        run: yarn install
       - name: Jest
         run: npm run test --coverage
       - name: Send coverage to codecov
@@ -47,7 +47,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build
-        run: npm run build
+        run: yarn run build
 
   buildCli:
     name: Run build-cli
@@ -59,6 +59,6 @@ jobs:
         with:
           node-version: 12.x
       - name: Install dependencies
-        run: npm install
+        run: yarn install
       - name: Build
-        run: npm run build-cli
+        run: yarn workspace @tool/cli run build

@@ -1,32 +1,16 @@
 {
-  "name": "ts-node-template",
-  "repository": "git@github.com:gagoar/codeowners-generator.git",
-  "license": "MIT",
-  "version": "0.0.0",
+  "name": "web-dependency-migration",
+  "repository": "git@github.com:webedx-spark/web-dependency-migration.git",
+  "private": true,
   "description": "ts node template description",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
-  "bin": {
-    "ts-node-template-ci": "cli/index.js"
-  },
-  "scripts": {
-    "precommit": "lint-staged",
-    "test": "jest",
-    "build": "esbuild --bundle ./index.ts --platform=node --target=node12 --main-fields=main --outdir=dist",
-    "build-cli": "esbuild --bundle ./src/bin/cli.ts --platform=node --target=node12 --main-fields=main  --outdir=cli",
-    "lint": "eslint src/* --ext .ts",
-    "build-types": "tsc --emitDeclarationOnly --outDir types",
-    "version": "auto-changelog -p && git add CHANGELOG.md",
-    "release": "npm run build && npm run build-cli && npm publish"
-  },
+  "workspaces": [
+    "packages/*"
+  ],
   "engines": {
     "node": ">10.0.0"
   },
-  "keywords": [
-    "cli",
-    "template",
-    "node"
-  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
@@ -102,6 +86,10 @@
     }
   },
   "author": "Gago <xeroice@gmail.com>",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint packages/*/src --ext .js,.ts"
+  },
   "dependencies": {
     "commander": "6.2.0",
     "cosmiconfig": "7.0.0",

@@ -1,21 +1,8 @@
-process.env.TZ = 'UTC';
+/* eslint-disable @typescript-eslint/no-var-requires */
+const configBase = require('./jest.config.base');
 
 module.exports = {
-  globals: {
-    'ts-jest': {
-      disableSourceMapSupport: true,
-    },
-  },
-  verbose: true,
-  transform: {
-    '^.+\\.tsx?$': 'ts-jest',
-  },
-  preset: 'ts-jest',
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-  testURL: 'http://localhost',
-  transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$'],
-  testMatch: ['**/*.(spec|test).{ts,tsx}'],
-  collectCoverage: true,
-  collectCoverageFrom: ['config/**/*.{ts,tsx}', 'src/**/*.{ts,tsx}', '!src/utils/guards.ts', '!src/bin/cli.ts'],
-  coverageDirectory: './coverage/',
+  ...configBase,
+  projects: ['<rootDir>/packages/*/jest.config.js'],
+  testMatch: ['<rootDir>/packages/**/*.(spec|test).{ts,tsx}'],
 };
