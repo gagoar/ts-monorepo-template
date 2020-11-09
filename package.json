@@ -21,8 +21,7 @@
       "pretty-quick --staged"
     ],
     "*.ts": [
-      "eslint --fix",
-      "bash -c \"npm run build\""
+      "eslint --fix"
     ]
   },
   "prettier": {
