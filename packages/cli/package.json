@@ -4,10 +4,10 @@
   "repository": "git@github.com:webedx-spark/web-dependency-migration.git",
   "private": true,
   "description": "core functionality for dependency migration for web",
-  "main": "dist/index.js",
+  "main": "index.js",
   "types": "types/index.d.ts",
   "bin": {
-    "dependency-migration": "cli/index.js"
+    "cli": "dist/cli.js"
   },
   "engines": {
     "node": ">10.0.0"
@@ -33,7 +33,9 @@
   },
   "scripts": {
     "test": "jest",
-    "build": "esbuild --bundle ./index.ts --platform=node --target=node12 --main-fields=main --outdir=cli"
+    "build": "esbuild --bundle ./src/bin/cli.ts --platform=node --target=node12 --main-fields=main --outdir=dist",
+    "build-types": "tsc --emitDeclarationOnly --outDir types",
+    "invoke": "yarn build && ./dist/cli.js"
   },
   "author": "Gago <xeroice@gmail.com>",
   "dependencies": {

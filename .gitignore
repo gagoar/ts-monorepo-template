@@ -1,4 +1,6 @@
 node_modules/
 .vscode/
-# ignore codecoverage output
+# ignore coverage output
 coverage/
+# ignore  dist
+dist/

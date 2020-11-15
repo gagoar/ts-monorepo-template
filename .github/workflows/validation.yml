@@ -47,4 +47,4 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Build
-        run: yarn workspace @tool/cli run build
+        run: yarn workspace @mono/cli run build
