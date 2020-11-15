@@ -1,0 +1,7 @@
+{
+  "include": ["pages"],
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true
+  }
+}

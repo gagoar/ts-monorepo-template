@@ -4,11 +4,11 @@
   <p align="center">
       🔧 set of tools to simplify dependency migration on web 🔧 
     <br />
-    <a href="https://github.com/gagoar/ts-node-template#table-of-contents"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/gagoar/ts-monorepo-template#table-of-contents"><strong>Explore the docs »</strong></a>
     <br />
-    <a href="https://github.com/gagoar/ts-node-template/issues">Report Bug</a>
+    <a href="https://github.com/gagoar/ts-monorepo-template/issues">Report Bug</a>
     ·
-    <a href="https://github.com/gagoar/ts-node-template/issues">Request Feature</a>
+    <a href="https://github.com/gagoar/ts-monorepo-template/issues">Request Feature</a>
   </p>
 </p>
 
@@ -23,11 +23,13 @@
 
 ### Built With
 
-- [ncc](https://github.com/vercel/ncc/)
+- [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/)
+- [react](https://reactjs.org/)
+- [nextjs](https://nextjs.org/)
 - [jest](https://github.com/facebook/jest)
 - [ora](https://github.com/sindresorhus/ora)
 - [commander](https://github.com/tj/commander.js/)
-- [cosmiconfig](https://github.com/davidtheclark/cosmiconfig)
+- [renovate](https://github.com/davidtheclark/cosmiconfig)
 
 ## Organization
 

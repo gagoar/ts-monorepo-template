@@ -4,41 +4,37 @@ var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __markAsModule = (target) => __defProp(target, '__esModule', { value: true });
+var __markAsModule = (target) => __defProp(target, "__esModule", {value: true});
 var __commonJS = (callback, module2) => () => {
   if (!module2) {
-    module2 = { exports: {} };
+    module2 = {exports: {}};
     callback(module2.exports, module2);
   }
   return module2.exports;
 };
 var __export = (target, all) => {
   __markAsModule(target);
-  for (var name2 in all) __defProp(target, name2, { get: all[name2], enumerable: true });
+  for (var name2 in all)
+    __defProp(target, name2, {get: all[name2], enumerable: true});
 };
 var __exportStar = (target, module2, desc) => {
   __markAsModule(target);
-  if (typeof module2 === 'object' || typeof module2 === 'function') {
+  if (typeof module2 === "object" || typeof module2 === "function") {
     for (let key of __getOwnPropNames(module2))
-      if (!__hasOwnProp.call(target, key) && key !== 'default')
-        __defProp(target, key, {
-          get: () => module2[key],
-          enumerable: !(desc = __getOwnPropDesc(module2, key)) || desc.enumerable,
-        });
+      if (!__hasOwnProp.call(target, key) && key !== "default")
+        __defProp(target, key, {get: () => module2[key], enumerable: !(desc = __getOwnPropDesc(module2, key)) || desc.enumerable});
   }
   return target;
 };
 var __toModule = (module2) => {
-  if (module2 && module2.__esModule) return module2;
-  return __exportStar(
-    __defProp(__create(__getProtoOf(module2)), 'default', { value: module2, enumerable: true }),
-    module2
-  );
+  if (module2 && module2.__esModule)
+    return module2;
+  return __exportStar(__defProp(__create(__getProtoOf(module2)), "default", {value: module2, enumerable: true}), module2);
 };
 
 // ../../node_modules/color-name/index.js
 var require_color_name = __commonJS((exports2, module2) => {
-  'use strict';
+  "use strict";
   module2.exports = {
     aliceblue: [240, 248, 255],
     antiquewhite: [250, 235, 215],
@@ -187,11 +183,11 @@ var require_color_name = __commonJS((exports2, module2) => {
     white: [255, 255, 255],
     whitesmoke: [245, 245, 245],
     yellow: [255, 255, 0],
-    yellowgreen: [154, 205, 50],
+    yellowgreen: [154, 205, 50]
   };
 });
 
-// ../../node_modules/color-convert/conversions.js
+// ../../node_modules/ansi-styles/node_modules/color-convert/conversions.js
 var require_conversions = __commonJS((exports2, module2) => {
   const cssKeywords = require_color_name();
   const reverseKeywords = {};
@@ -199,40 +195,40 @@ var require_conversions = __commonJS((exports2, module2) => {
     reverseKeywords[cssKeywords[key]] = key;
   }
   const convert = {
-    rgb: { channels: 3, labels: 'rgb' },
-    hsl: { channels: 3, labels: 'hsl' },
-    hsv: { channels: 3, labels: 'hsv' },
-    hwb: { channels: 3, labels: 'hwb' },
-    cmyk: { channels: 4, labels: 'cmyk' },
-    xyz: { channels: 3, labels: 'xyz' },
-    lab: { channels: 3, labels: 'lab' },
-    lch: { channels: 3, labels: 'lch' },
-    hex: { channels: 1, labels: ['hex'] },
-    keyword: { channels: 1, labels: ['keyword'] },
-    ansi16: { channels: 1, labels: ['ansi16'] },
-    ansi256: { channels: 1, labels: ['ansi256'] },
-    hcg: { channels: 3, labels: ['h', 'c', 'g'] },
-    apple: { channels: 3, labels: ['r16', 'g16', 'b16'] },
-    gray: { channels: 1, labels: ['gray'] },
+    rgb: {channels: 3, labels: "rgb"},
+    hsl: {channels: 3, labels: "hsl"},
+    hsv: {channels: 3, labels: "hsv"},
+    hwb: {channels: 3, labels: "hwb"},
+    cmyk: {channels: 4, labels: "cmyk"},
+    xyz: {channels: 3, labels: "xyz"},
+    lab: {channels: 3, labels: "lab"},
+    lch: {channels: 3, labels: "lch"},
+    hex: {channels: 1, labels: ["hex"]},
+    keyword: {channels: 1, labels: ["keyword"]},
+    ansi16: {channels: 1, labels: ["ansi16"]},
+    ansi256: {channels: 1, labels: ["ansi256"]},
+    hcg: {channels: 3, labels: ["h", "c", "g"]},
+    apple: {channels: 3, labels: ["r16", "g16", "b16"]},
+    gray: {channels: 1, labels: ["gray"]}
   };
   module2.exports = convert;
   for (const model of Object.keys(convert)) {
-    if (!('channels' in convert[model])) {
-      throw new Error('missing channels property: ' + model);
+    if (!("channels" in convert[model])) {
+      throw new Error("missing channels property: " + model);
     }
-    if (!('labels' in convert[model])) {
-      throw new Error('missing channel labels property: ' + model);
+    if (!("labels" in convert[model])) {
+      throw new Error("missing channel labels property: " + model);
     }
     if (convert[model].labels.length !== convert[model].channels) {
-      throw new Error('channel and label counts mismatch: ' + model);
+      throw new Error("channel and label counts mismatch: " + model);
     }
-    const { channels, labels } = convert[model];
+    const {channels, labels} = convert[model];
     delete convert[model].channels;
     delete convert[model].labels;
-    Object.defineProperty(convert[model], 'channels', { value: channels });
-    Object.defineProperty(convert[model], 'labels', { value: labels });
+    Object.defineProperty(convert[model], "channels", {value: channels});
+    Object.defineProperty(convert[model], "labels", {value: labels});
   }
-  convert.rgb.hsl = function (rgb) {
+  convert.rgb.hsl = function(rgb) {
     const r = rgb[0] / 255;
     const g = rgb[1] / 255;
     const b = rgb[2] / 255;
@@ -264,7 +260,7 @@ var require_conversions = __commonJS((exports2, module2) => {
     }
     return [h, s * 100, l * 100];
   };
-  convert.rgb.hsv = function (rgb) {
+  convert.rgb.hsv = function(rgb) {
     let rdif;
     let gdif;
     let bdif;
@@ -275,7 +271,7 @@ var require_conversions = __commonJS((exports2, module2) => {
     const b = rgb[2] / 255;
     const v = Math.max(r, g, b);
     const diff = v - Math.min(r, g, b);
-    const diffc = function (c) {
+    const diffc = function(c) {
       return (v - c) / 6 / diff + 1 / 2;
     };
     if (diff === 0) {
@@ -299,18 +295,22 @@ var require_conversions = __commonJS((exports2, module2) => {
         h -= 1;
       }
     }
-    return [h * 360, s * 100, v * 100];
+    return [
+      h * 360,
+      s * 100,
+      v * 100
+    ];
   };
-  convert.rgb.hwb = function (rgb) {
+  convert.rgb.hwb = function(rgb) {
     const r = rgb[0];
     const g = rgb[1];
     let b = rgb[2];
     const h = convert.rgb.hsl(rgb)[0];
-    const w = (1 / 255) * Math.min(r, Math.min(g, b));
-    b = 1 - (1 / 255) * Math.max(r, Math.max(g, b));
+    const w = 1 / 255 * Math.min(r, Math.min(g, b));
+    b = 1 - 1 / 255 * Math.max(r, Math.max(g, b));
     return [h, w * 100, b * 100];
   };
-  convert.rgb.cmyk = function (rgb) {
+  convert.rgb.cmyk = function(rgb) {
     const r = rgb[0] / 255;
     const g = rgb[1] / 255;
     const b = rgb[2] / 255;
@@ -323,7 +323,7 @@ var require_conversions = __commonJS((exports2, module2) => {
   function comparativeDistance(x, y) {
     return (x[0] - y[0]) ** 2 + (x[1] - y[1]) ** 2 + (x[2] - y[2]) ** 2;
   }
-  convert.rgb.keyword = function (rgb) {
+  convert.rgb.keyword = function(rgb) {
     const reversed = reverseKeywords[rgb];
     if (reversed) {
       return reversed;
@@ -340,10 +340,10 @@ var require_conversions = __commonJS((exports2, module2) => {
     }
     return currentClosestKeyword;
   };
-  convert.keyword.rgb = function (keyword) {
+  convert.keyword.rgb = function(keyword) {
     return cssKeywords[keyword];
   };
-  convert.rgb.xyz = function (rgb) {
+  convert.rgb.xyz = function(rgb) {
     let r = rgb[0] / 255;
     let g = rgb[1] / 255;
     let b = rgb[2] / 255;
@@ -355,7 +355,7 @@ var require_conversions = __commonJS((exports2, module2) => {
     const z = r * 0.0193 + g * 0.1192 + b * 0.9505;
     return [x * 100, y * 100, z * 100];
   };
-  convert.rgb.lab = function (rgb) {
+  convert.rgb.lab = function(rgb) {
     const xyz = convert.rgb.xyz(rgb);
     let x = xyz[0];
     let y = xyz[1];
@@ -371,7 +371,7 @@ var require_conversions = __commonJS((exports2, module2) => {
     const b = 200 * (y - z);
     return [l, a, b];
   };
-  convert.hsl.rgb = function (hsl) {
+  convert.hsl.rgb = function(hsl) {
     const h = hsl[0] / 360;
     const s = hsl[1] / 100;
     const l = hsl[2] / 100;
@@ -390,7 +390,7 @@ var require_conversions = __commonJS((exports2, module2) => {
     const t1 = 2 * l - t2;
     const rgb = [0, 0, 0];
     for (let i = 0; i < 3; i++) {
-      t3 = h + (1 / 3) * -(i - 1);
+      t3 = h + 1 / 3 * -(i - 1);
       if (t3 < 0) {
         t3++;
       }
@@ -410,7 +410,7 @@ var require_conversions = __commonJS((exports2, module2) => {
     }
     return rgb;
   };
-  convert.hsl.hsv = function (hsl) {
+  convert.hsl.hsv = function(hsl) {
     const h = hsl[0];
     let s = hsl[1] / 100;
     let l = hsl[2] / 100;
@@ -420,10 +420,10 @@ var require_conversions = __commonJS((exports2, module2) => {
     s *= l <= 1 ? l : 2 - l;
     smin *= lmin <= 1 ? lmin : 2 - lmin;
     const v = (l + s) / 2;
-    const sv = l === 0 ? (2 * smin) / (lmin + smin) : (2 * s) / (l + s);
+    const sv = l === 0 ? 2 * smin / (lmin + smin) : 2 * s / (l + s);
     return [h, sv * 100, v * 100];
   };
-  convert.hsv.rgb = function (hsv) {
+  convert.hsv.rgb = function(hsv) {
     const h = hsv[0] / 60;
     const s = hsv[1] / 100;
     let v = hsv[2] / 100;
@@ -448,7 +448,7 @@ var require_conversions = __commonJS((exports2, module2) => {
         return [v, p, q];
     }
   };
-  convert.hsv.hsl = function (hsv) {
+  convert.hsv.hsl = function(hsv) {
     const h = hsv[0];
     const s = hsv[1] / 100;
     const v = hsv[2] / 100;
@@ -463,7 +463,7 @@ var require_conversions = __commonJS((exports2, module2) => {
     l /= 2;
     return [h, sl * 100, l * 100];
   };
-  convert.hwb.rgb = function (hwb) {
+  convert.hwb.rgb = function(hwb) {
     const h = hwb[0] / 360;
     let wh = hwb[1] / 100;
     let bl = hwb[2] / 100;
@@ -519,7 +519,7 @@ var require_conversions = __commonJS((exports2, module2) => {
     }
     return [r * 255, g * 255, b * 255];
   };
-  convert.cmyk.rgb = function (cmyk) {
+  convert.cmyk.rgb = function(cmyk) {
     const c = cmyk[0] / 100;
     const m = cmyk[1] / 100;
     const y = cmyk[2] / 100;
@@ -529,7 +529,7 @@ var require_conversions = __commonJS((exports2, module2) => {
     const b = 1 - Math.min(1, y * (1 - k) + k);
     return [r * 255, g * 255, b * 255];
   };
-  convert.xyz.rgb = function (xyz) {
+  convert.xyz.rgb = function(xyz) {
     const x = xyz[0] / 100;
     const y = xyz[1] / 100;
     const z = xyz[2] / 100;
@@ -547,7 +547,7 @@ var require_conversions = __commonJS((exports2, module2) => {
     b = Math.min(Math.max(0, b), 1);
     return [r * 255, g * 255, b * 255];
   };
-  convert.xyz.lab = function (xyz) {
+  convert.xyz.lab = function(xyz) {
     let x = xyz[0];
     let y = xyz[1];
     let z = xyz[2];
@@ -562,7 +562,7 @@ var require_conversions = __commonJS((exports2, module2) => {
     const b = 200 * (y - z);
     return [l, a, b];
   };
-  convert.lab.xyz = function (lab) {
+  convert.lab.xyz = function(lab) {
     const l = lab[0];
     const a = lab[1];
     const b = lab[2];
@@ -583,45 +583,45 @@ var require_conversions = __commonJS((exports2, module2) => {
     z *= 108.883;
     return [x, y, z];
   };
-  convert.lab.lch = function (lab) {
+  convert.lab.lch = function(lab) {
     const l = lab[0];
     const a = lab[1];
     const b = lab[2];
     let h;
     const hr = Math.atan2(b, a);
-    h = (hr * 360) / 2 / Math.PI;
+    h = hr * 360 / 2 / Math.PI;
     if (h < 0) {
       h += 360;
     }
     const c = Math.sqrt(a * a + b * b);
     return [l, c, h];
   };
-  convert.lch.lab = function (lch) {
+  convert.lch.lab = function(lch) {
     const l = lch[0];
     const c = lch[1];
     const h = lch[2];
-    const hr = (h / 360) * 2 * Math.PI;
+    const hr = h / 360 * 2 * Math.PI;
     const a = c * Math.cos(hr);
     const b = c * Math.sin(hr);
     return [l, a, b];
   };
-  convert.rgb.ansi16 = function (args, saturation = null) {
+  convert.rgb.ansi16 = function(args, saturation = null) {
     const [r, g, b] = args;
     let value = saturation === null ? convert.rgb.hsv(args)[2] : saturation;
     value = Math.round(value / 50);
     if (value === 0) {
       return 30;
     }
-    let ansi = 30 + ((Math.round(b / 255) << 2) | (Math.round(g / 255) << 1) | Math.round(r / 255));
+    let ansi = 30 + (Math.round(b / 255) << 2 | Math.round(g / 255) << 1 | Math.round(r / 255));
     if (value === 2) {
       ansi += 60;
     }
     return ansi;
   };
-  convert.hsv.ansi16 = function (args) {
+  convert.hsv.ansi16 = function(args) {
     return convert.rgb.ansi16(convert.hsv.rgb(args), args[2]);
   };
-  convert.rgb.ansi256 = function (args) {
+  convert.rgb.ansi256 = function(args) {
     const r = args[0];
     const g = args[1];
     const b = args[2];
@@ -632,65 +632,61 @@ var require_conversions = __commonJS((exports2, module2) => {
       if (r > 248) {
         return 231;
       }
-      return Math.round(((r - 8) / 247) * 24) + 232;
+      return Math.round((r - 8) / 247 * 24) + 232;
     }
-    const ansi = 16 + 36 * Math.round((r / 255) * 5) + 6 * Math.round((g / 255) * 5) + Math.round((b / 255) * 5);
+    const ansi = 16 + 36 * Math.round(r / 255 * 5) + 6 * Math.round(g / 255 * 5) + Math.round(b / 255 * 5);
     return ansi;
   };
-  convert.ansi16.rgb = function (args) {
+  convert.ansi16.rgb = function(args) {
     let color = args % 10;
     if (color === 0 || color === 7) {
       if (args > 50) {
         color += 3.5;
       }
-      color = (color / 10.5) * 255;
+      color = color / 10.5 * 255;
       return [color, color, color];
     }
     const mult = (~~(args > 50) + 1) * 0.5;
     const r = (color & 1) * mult * 255;
-    const g = ((color >> 1) & 1) * mult * 255;
-    const b = ((color >> 2) & 1) * mult * 255;
+    const g = (color >> 1 & 1) * mult * 255;
+    const b = (color >> 2 & 1) * mult * 255;
     return [r, g, b];
   };
-  convert.ansi256.rgb = function (args) {
+  convert.ansi256.rgb = function(args) {
     if (args >= 232) {
       const c = (args - 232) * 10 + 8;
       return [c, c, c];
     }
     args -= 16;
     let rem;
-    const r = (Math.floor(args / 36) / 5) * 255;
-    const g = (Math.floor((rem = args % 36) / 6) / 5) * 255;
-    const b = ((rem % 6) / 5) * 255;
+    const r = Math.floor(args / 36) / 5 * 255;
+    const g = Math.floor((rem = args % 36) / 6) / 5 * 255;
+    const b = rem % 6 / 5 * 255;
     return [r, g, b];
   };
-  convert.rgb.hex = function (args) {
-    const integer =
-      ((Math.round(args[0]) & 255) << 16) + ((Math.round(args[1]) & 255) << 8) + (Math.round(args[2]) & 255);
+  convert.rgb.hex = function(args) {
+    const integer = ((Math.round(args[0]) & 255) << 16) + ((Math.round(args[1]) & 255) << 8) + (Math.round(args[2]) & 255);
     const string = integer.toString(16).toUpperCase();
-    return '000000'.substring(string.length) + string;
+    return "000000".substring(string.length) + string;
   };
-  convert.hex.rgb = function (args) {
+  convert.hex.rgb = function(args) {
     const match = args.toString(16).match(/[a-f0-9]{6}|[a-f0-9]{3}/i);
     if (!match) {
       return [0, 0, 0];
     }
     let colorString = match[0];
     if (match[0].length === 3) {
-      colorString = colorString
-        .split('')
-        .map((char) => {
-          return char + char;
-        })
-        .join('');
+      colorString = colorString.split("").map((char) => {
+        return char + char;
+      }).join("");
     }
     const integer = parseInt(colorString, 16);
-    const r = (integer >> 16) & 255;
-    const g = (integer >> 8) & 255;
+    const r = integer >> 16 & 255;
+    const g = integer >> 8 & 255;
     const b = integer & 255;
     return [r, g, b];
   };
-  convert.rgb.hcg = function (rgb) {
+  convert.rgb.hcg = function(rgb) {
     const r = rgb[0] / 255;
     const g = rgb[1] / 255;
     const b = rgb[2] / 255;
@@ -707,7 +703,7 @@ var require_conversions = __commonJS((exports2, module2) => {
     if (chroma <= 0) {
       hue = 0;
     } else if (max === r) {
-      hue = ((g - b) / chroma) % 6;
+      hue = (g - b) / chroma % 6;
     } else if (max === g) {
       hue = 2 + (b - r) / chroma;
     } else {
@@ -717,7 +713,7 @@ var require_conversions = __commonJS((exports2, module2) => {
     hue %= 1;
     return [hue * 360, chroma * 100, grayscale * 100];
   };
-  convert.hsl.hcg = function (hsl) {
+  convert.hsl.hcg = function(hsl) {
     const s = hsl[1] / 100;
     const l = hsl[2] / 100;
     const c = l < 0.5 ? 2 * s * l : 2 * s * (1 - l);
@@ -727,7 +723,7 @@ var require_conversions = __commonJS((exports2, module2) => {
     }
     return [hsl[0], c * 100, f * 100];
   };
-  convert.hsv.hcg = function (hsv) {
+  convert.hsv.hcg = function(hsv) {
     const s = hsv[1] / 100;
     const v = hsv[2] / 100;
     const c = s * v;
@@ -737,7 +733,7 @@ var require_conversions = __commonJS((exports2, module2) => {
     }
     return [hsv[0], c * 100, f * 100];
   };
-  convert.hcg.rgb = function (hcg) {
+  convert.hcg.rgb = function(hcg) {
     const h = hcg[0] / 360;
     const c = hcg[1] / 100;
     const g = hcg[2] / 100;
@@ -745,7 +741,7 @@ var require_conversions = __commonJS((exports2, module2) => {
       return [g * 255, g * 255, g * 255];
     }
     const pure = [0, 0, 0];
-    const hi = (h % 1) * 6;
+    const hi = h % 1 * 6;
     const v = hi % 1;
     const w = 1 - v;
     let mg = 0;
@@ -781,9 +777,13 @@ var require_conversions = __commonJS((exports2, module2) => {
         pure[2] = w;
     }
     mg = (1 - c) * g;
-    return [(c * pure[0] + mg) * 255, (c * pure[1] + mg) * 255, (c * pure[2] + mg) * 255];
+    return [
+      (c * pure[0] + mg) * 255,
+      (c * pure[1] + mg) * 255,
+      (c * pure[2] + mg) * 255
+    ];
   };
-  convert.hcg.hsv = function (hcg) {
+  convert.hcg.hsv = function(hcg) {
     const c = hcg[1] / 100;
     const g = hcg[2] / 100;
     const v = c + g * (1 - c);
@@ -793,7 +793,7 @@ var require_conversions = __commonJS((exports2, module2) => {
     }
     return [hcg[0], f * 100, v * 100];
   };
-  convert.hcg.hsl = function (hcg) {
+  convert.hcg.hsl = function(hcg) {
     const c = hcg[1] / 100;
     const g = hcg[2] / 100;
     const l = g * (1 - c) + 0.5 * c;
@@ -805,13 +805,13 @@ var require_conversions = __commonJS((exports2, module2) => {
     }
     return [hcg[0], s * 100, l * 100];
   };
-  convert.hcg.hwb = function (hcg) {
+  convert.hcg.hwb = function(hcg) {
     const c = hcg[1] / 100;
     const g = hcg[2] / 100;
     const v = c + g * (1 - c);
     return [hcg[0], (v - c) * 100, (1 - v) * 100];
   };
-  convert.hwb.hcg = function (hwb) {
+  convert.hwb.hcg = function(hwb) {
     const w = hwb[1] / 100;
     const b = hwb[2] / 100;
     const v = 1 - b;
@@ -822,41 +822,41 @@ var require_conversions = __commonJS((exports2, module2) => {
     }
     return [hwb[0], c * 100, g * 100];
   };
-  convert.apple.rgb = function (apple) {
-    return [(apple[0] / 65535) * 255, (apple[1] / 65535) * 255, (apple[2] / 65535) * 255];
+  convert.apple.rgb = function(apple) {
+    return [apple[0] / 65535 * 255, apple[1] / 65535 * 255, apple[2] / 65535 * 255];
   };
-  convert.rgb.apple = function (rgb) {
-    return [(rgb[0] / 255) * 65535, (rgb[1] / 255) * 65535, (rgb[2] / 255) * 65535];
+  convert.rgb.apple = function(rgb) {
+    return [rgb[0] / 255 * 65535, rgb[1] / 255 * 65535, rgb[2] / 255 * 65535];
   };
-  convert.gray.rgb = function (args) {
-    return [(args[0] / 100) * 255, (args[0] / 100) * 255, (args[0] / 100) * 255];
+  convert.gray.rgb = function(args) {
+    return [args[0] / 100 * 255, args[0] / 100 * 255, args[0] / 100 * 255];
   };
-  convert.gray.hsl = function (args) {
+  convert.gray.hsl = function(args) {
     return [0, 0, args[0]];
   };
   convert.gray.hsv = convert.gray.hsl;
-  convert.gray.hwb = function (gray) {
+  convert.gray.hwb = function(gray) {
     return [0, 100, gray[0]];
   };
-  convert.gray.cmyk = function (gray) {
+  convert.gray.cmyk = function(gray) {
     return [0, 0, 0, gray[0]];
   };
-  convert.gray.lab = function (gray) {
+  convert.gray.lab = function(gray) {
     return [gray[0], 0, 0];
   };
-  convert.gray.hex = function (gray) {
-    const val = Math.round((gray[0] / 100) * 255) & 255;
+  convert.gray.hex = function(gray) {
+    const val = Math.round(gray[0] / 100 * 255) & 255;
     const integer = (val << 16) + (val << 8) + val;
     const string = integer.toString(16).toUpperCase();
-    return '000000'.substring(string.length) + string;
+    return "000000".substring(string.length) + string;
   };
-  convert.rgb.gray = function (rgb) {
+  convert.rgb.gray = function(rgb) {
     const val = (rgb[0] + rgb[1] + rgb[2]) / 3;
-    return [(val / 255) * 100];
+    return [val / 255 * 100];
   };
 });
 
-// ../../node_modules/color-convert/route.js
+// ../../node_modules/ansi-styles/node_modules/color-convert/route.js
 var require_route = __commonJS((exports2, module2) => {
   const conversions = require_conversions();
   function buildGraph() {
@@ -865,7 +865,7 @@ var require_route = __commonJS((exports2, module2) => {
     for (let len = models.length, i = 0; i < len; i++) {
       graph[models[i]] = {
         distance: -1,
-        parent: null,
+        parent: null
       };
     }
     return graph;
@@ -890,7 +890,7 @@ var require_route = __commonJS((exports2, module2) => {
     return graph;
   }
   function link(from, to) {
-    return function (args) {
+    return function(args) {
       return to(from(args));
     };
   }
@@ -906,7 +906,7 @@ var require_route = __commonJS((exports2, module2) => {
     fn.conversion = path;
     return fn;
   }
-  module2.exports = function (fromModel) {
+  module2.exports = function(fromModel) {
     const graph = deriveBFS(fromModel);
     const conversion = {};
     const models = Object.keys(graph);
@@ -922,14 +922,14 @@ var require_route = __commonJS((exports2, module2) => {
   };
 });
 
-// ../../node_modules/color-convert/index.js
+// ../../node_modules/ansi-styles/node_modules/color-convert/index.js
 var require_color_convert = __commonJS((exports2, module2) => {
   const conversions = require_conversions();
   const route = require_route();
   const convert = {};
   const models = Object.keys(conversions);
   function wrapRaw(fn) {
-    const wrappedFn = function (...args) {
+    const wrappedFn = function(...args) {
       const arg0 = args[0];
       if (arg0 === void 0 || arg0 === null) {
         return arg0;
@@ -939,13 +939,13 @@ var require_color_convert = __commonJS((exports2, module2) => {
       }
       return fn(args);
     };
-    if ('conversion' in fn) {
+    if ("conversion" in fn) {
       wrappedFn.conversion = fn.conversion;
     }
     return wrappedFn;
   }
   function wrapRounded(fn) {
-    const wrappedFn = function (...args) {
+    const wrappedFn = function(...args) {
       const arg0 = args[0];
       if (arg0 === void 0 || arg0 === null) {
         return arg0;
@@ -954,22 +954,22 @@ var require_color_convert = __commonJS((exports2, module2) => {
         args = arg0;
       }
       const result = fn(args);
-      if (typeof result === 'object') {
+      if (typeof result === "object") {
         for (let len = result.length, i = 0; i < len; i++) {
           result[i] = Math.round(result[i]);
         }
       }
       return result;
     };
-    if ('conversion' in fn) {
+    if ("conversion" in fn) {
       wrappedFn.conversion = fn.conversion;
     }
     return wrappedFn;
   }
   models.forEach((fromModel) => {
     convert[fromModel] = {};
-    Object.defineProperty(convert[fromModel], 'channels', { value: conversions[fromModel].channels });
-    Object.defineProperty(convert[fromModel], 'labels', { value: conversions[fromModel].labels });
+    Object.defineProperty(convert[fromModel], "channels", {value: conversions[fromModel].channels});
+    Object.defineProperty(convert[fromModel], "labels", {value: conversions[fromModel].labels});
     const routes = route(fromModel);
     const routeModels = Object.keys(routes);
     routeModels.forEach((toModel) => {
@@ -983,7 +983,7 @@ var require_color_convert = __commonJS((exports2, module2) => {
 
 // ../../node_modules/ansi-styles/index.js
 var require_ansi_styles = __commonJS((exports2, module2) => {
-  'use strict';
+  "use strict";
   const wrapAnsi16 = (fn, offset) => (...args) => {
     const code = fn(...args);
     return `[${code + offset}m`;
@@ -1005,12 +1005,12 @@ var require_ansi_styles = __commonJS((exports2, module2) => {
         Object.defineProperty(object, property, {
           value,
           enumerable: true,
-          configurable: true,
+          configurable: true
         });
         return value;
       },
       enumerable: true,
-      configurable: true,
+      configurable: true
     });
   };
   let colorConvert;
@@ -1021,10 +1021,10 @@ var require_ansi_styles = __commonJS((exports2, module2) => {
     const offset = isBackground ? 10 : 0;
     const styles = {};
     for (const [sourceSpace, suite] of Object.entries(colorConvert)) {
-      const name2 = sourceSpace === 'ansi16' ? 'ansi' : sourceSpace;
+      const name2 = sourceSpace === "ansi16" ? "ansi" : sourceSpace;
       if (sourceSpace === targetSpace) {
         styles[name2] = wrap(identity, offset);
-      } else if (typeof suite === 'object') {
+      } else if (typeof suite === "object") {
         styles[name2] = wrap(suite[targetSpace], offset);
       }
     }
@@ -1041,7 +1041,7 @@ var require_ansi_styles = __commonJS((exports2, module2) => {
         underline: [4, 24],
         inverse: [7, 27],
         hidden: [8, 28],
-        strikethrough: [9, 29],
+        strikethrough: [9, 29]
       },
       color: {
         black: [30, 39],
@@ -1059,7 +1059,7 @@ var require_ansi_styles = __commonJS((exports2, module2) => {
         blueBright: [94, 39],
         magentaBright: [95, 39],
         cyanBright: [96, 39],
-        whiteBright: [97, 39],
+        whiteBright: [97, 39]
       },
       bgColor: {
         bgBlack: [40, 49],
@@ -1077,8 +1077,8 @@ var require_ansi_styles = __commonJS((exports2, module2) => {
         bgBlueBright: [104, 49],
         bgMagentaBright: [105, 49],
         bgCyanBright: [106, 49],
-        bgWhiteBright: [107, 49],
-      },
+        bgWhiteBright: [107, 49]
+      }
     };
     styles.color.gray = styles.color.blackBright;
     styles.bgColor.bgGray = styles.bgColor.bgBlackBright;
@@ -1088,64 +1088,64 @@ var require_ansi_styles = __commonJS((exports2, module2) => {
       for (const [styleName, style] of Object.entries(group)) {
         styles[styleName] = {
           open: `[${style[0]}m`,
-          close: `[${style[1]}m`,
+          close: `[${style[1]}m`
         };
         group[styleName] = styles[styleName];
         codes.set(style[0], style[1]);
       }
       Object.defineProperty(styles, groupName, {
         value: group,
-        enumerable: false,
+        enumerable: false
       });
     }
-    Object.defineProperty(styles, 'codes', {
+    Object.defineProperty(styles, "codes", {
       value: codes,
-      enumerable: false,
+      enumerable: false
     });
-    styles.color.close = '[39m';
-    styles.bgColor.close = '[49m';
-    setLazyProperty(styles.color, 'ansi', () => makeDynamicStyles(wrapAnsi16, 'ansi16', ansi2ansi, false));
-    setLazyProperty(styles.color, 'ansi256', () => makeDynamicStyles(wrapAnsi256, 'ansi256', ansi2ansi, false));
-    setLazyProperty(styles.color, 'ansi16m', () => makeDynamicStyles(wrapAnsi16m, 'rgb', rgb2rgb, false));
-    setLazyProperty(styles.bgColor, 'ansi', () => makeDynamicStyles(wrapAnsi16, 'ansi16', ansi2ansi, true));
-    setLazyProperty(styles.bgColor, 'ansi256', () => makeDynamicStyles(wrapAnsi256, 'ansi256', ansi2ansi, true));
-    setLazyProperty(styles.bgColor, 'ansi16m', () => makeDynamicStyles(wrapAnsi16m, 'rgb', rgb2rgb, true));
+    styles.color.close = "[39m";
+    styles.bgColor.close = "[49m";
+    setLazyProperty(styles.color, "ansi", () => makeDynamicStyles(wrapAnsi16, "ansi16", ansi2ansi, false));
+    setLazyProperty(styles.color, "ansi256", () => makeDynamicStyles(wrapAnsi256, "ansi256", ansi2ansi, false));
+    setLazyProperty(styles.color, "ansi16m", () => makeDynamicStyles(wrapAnsi16m, "rgb", rgb2rgb, false));
+    setLazyProperty(styles.bgColor, "ansi", () => makeDynamicStyles(wrapAnsi16, "ansi16", ansi2ansi, true));
+    setLazyProperty(styles.bgColor, "ansi256", () => makeDynamicStyles(wrapAnsi256, "ansi256", ansi2ansi, true));
+    setLazyProperty(styles.bgColor, "ansi16m", () => makeDynamicStyles(wrapAnsi16m, "rgb", rgb2rgb, true));
     return styles;
   }
-  Object.defineProperty(module2, 'exports', {
+  Object.defineProperty(module2, "exports", {
     enumerable: true,
-    get: assembleStyles,
+    get: assembleStyles
   });
 });
 
-// ../../node_modules/has-flag/index.js
+// ../../node_modules/supports-color/node_modules/has-flag/index.js
 var require_has_flag = __commonJS((exports2, module2) => {
-  'use strict';
+  "use strict";
   module2.exports = (flag, argv = process.argv) => {
-    const prefix = flag.startsWith('-') ? '' : flag.length === 1 ? '-' : '--';
+    const prefix = flag.startsWith("-") ? "" : flag.length === 1 ? "-" : "--";
     const position = argv.indexOf(prefix + flag);
-    const terminatorPosition = argv.indexOf('--');
+    const terminatorPosition = argv.indexOf("--");
     return position !== -1 && (terminatorPosition === -1 || position < terminatorPosition);
   };
 });
 
 // ../../node_modules/supports-color/index.js
 var require_supports_color = __commonJS((exports2, module2) => {
-  'use strict';
-  const os = require('os');
-  const tty = require('tty');
+  "use strict";
+  const os = require("os");
+  const tty = require("tty");
   const hasFlag = require_has_flag();
-  const { env } = process;
+  const {env} = process;
   let forceColor;
-  if (hasFlag('no-color') || hasFlag('no-colors') || hasFlag('color=false') || hasFlag('color=never')) {
+  if (hasFlag("no-color") || hasFlag("no-colors") || hasFlag("color=false") || hasFlag("color=never")) {
     forceColor = 0;
-  } else if (hasFlag('color') || hasFlag('colors') || hasFlag('color=true') || hasFlag('color=always')) {
+  } else if (hasFlag("color") || hasFlag("colors") || hasFlag("color=true") || hasFlag("color=always")) {
     forceColor = 1;
   }
-  if ('FORCE_COLOR' in env) {
-    if (env.FORCE_COLOR === 'true') {
+  if ("FORCE_COLOR" in env) {
+    if (env.FORCE_COLOR === "true") {
       forceColor = 1;
-    } else if (env.FORCE_COLOR === 'false') {
+    } else if (env.FORCE_COLOR === "false") {
       forceColor = 0;
     } else {
       forceColor = env.FORCE_COLOR.length === 0 ? 1 : Math.min(parseInt(env.FORCE_COLOR, 10), 3);
@@ -1159,54 +1159,51 @@ var require_supports_color = __commonJS((exports2, module2) => {
       level,
       hasBasic: true,
       has256: level >= 2,
-      has16m: level >= 3,
+      has16m: level >= 3
     };
   }
   function supportsColor(haveStream, streamIsTTY) {
     if (forceColor === 0) {
       return 0;
     }
-    if (hasFlag('color=16m') || hasFlag('color=full') || hasFlag('color=truecolor')) {
+    if (hasFlag("color=16m") || hasFlag("color=full") || hasFlag("color=truecolor")) {
       return 3;
     }
-    if (hasFlag('color=256')) {
+    if (hasFlag("color=256")) {
       return 2;
     }
     if (haveStream && !streamIsTTY && forceColor === void 0) {
       return 0;
     }
     const min = forceColor || 0;
-    if (env.TERM === 'dumb') {
+    if (env.TERM === "dumb") {
       return min;
     }
-    if (process.platform === 'win32') {
-      const osRelease = os.release().split('.');
+    if (process.platform === "win32") {
+      const osRelease = os.release().split(".");
       if (Number(osRelease[0]) >= 10 && Number(osRelease[2]) >= 10586) {
         return Number(osRelease[2]) >= 14931 ? 3 : 2;
       }
       return 1;
     }
-    if ('CI' in env) {
-      if (
-        ['TRAVIS', 'CIRCLECI', 'APPVEYOR', 'GITLAB_CI', 'GITHUB_ACTIONS', 'BUILDKITE'].some((sign) => sign in env) ||
-        env.CI_NAME === 'codeship'
-      ) {
+    if ("CI" in env) {
+      if (["TRAVIS", "CIRCLECI", "APPVEYOR", "GITLAB_CI", "GITHUB_ACTIONS", "BUILDKITE"].some((sign) => sign in env) || env.CI_NAME === "codeship") {
         return 1;
       }
       return min;
     }
-    if ('TEAMCITY_VERSION' in env) {
+    if ("TEAMCITY_VERSION" in env) {
       return /^(9\.(0*[1-9]\d*)\.|\d{2,}\.)/.test(env.TEAMCITY_VERSION) ? 1 : 0;
     }
-    if (env.COLORTERM === 'truecolor') {
+    if (env.COLORTERM === "truecolor") {
       return 3;
     }
-    if ('TERM_PROGRAM' in env) {
-      const version = parseInt((env.TERM_PROGRAM_VERSION || '').split('.')[0], 10);
+    if ("TERM_PROGRAM" in env) {
+      const version = parseInt((env.TERM_PROGRAM_VERSION || "").split(".")[0], 10);
       switch (env.TERM_PROGRAM) {
-        case 'iTerm.app':
+        case "iTerm.app":
           return version >= 3 ? 3 : 2;
-        case 'Apple_Terminal':
+        case "Apple_Terminal":
           return 2;
       }
     }
@@ -1216,7 +1213,7 @@ var require_supports_color = __commonJS((exports2, module2) => {
     if (/^screen|^xterm|^vt100|^vt220|^rxvt|color|ansi|cygwin|linux/i.test(env.TERM)) {
       return 1;
     }
-    if ('COLORTERM' in env) {
+    if ("COLORTERM" in env) {
       return 1;
     }
     return min;
@@ -1228,13 +1225,13 @@ var require_supports_color = __commonJS((exports2, module2) => {
   module2.exports = {
     supportsColor: getSupportLevel,
     stdout: translateLevel(supportsColor(true, tty.isatty(1))),
-    stderr: translateLevel(supportsColor(true, tty.isatty(2))),
+    stderr: translateLevel(supportsColor(true, tty.isatty(2)))
   };
 });
 
 // ../../node_modules/chalk/source/util.js
 var require_util = __commonJS((exports2, module2) => {
-  'use strict';
+  "use strict";
   const stringReplaceAll = (string, substring, replacer) => {
     let index = string.indexOf(substring);
     if (index === -1) {
@@ -1242,7 +1239,7 @@ var require_util = __commonJS((exports2, module2) => {
     }
     const substringLength = substring.length;
     let endIndex = 0;
-    let returnValue = '';
+    let returnValue = "";
     do {
       returnValue += string.substr(endIndex, index - endIndex) + substring + replacer;
       endIndex = index + substringLength;
@@ -1253,46 +1250,45 @@ var require_util = __commonJS((exports2, module2) => {
   };
   const stringEncaseCRLFWithFirstIndex = (string, prefix, postfix, index) => {
     let endIndex = 0;
-    let returnValue = '';
+    let returnValue = "";
     do {
-      const gotCR = string[index - 1] === '\r';
-      returnValue +=
-        string.substr(endIndex, (gotCR ? index - 1 : index) - endIndex) + prefix + (gotCR ? '\r\n' : '\n') + postfix;
+      const gotCR = string[index - 1] === "\r";
+      returnValue += string.substr(endIndex, (gotCR ? index - 1 : index) - endIndex) + prefix + (gotCR ? "\r\n" : "\n") + postfix;
       endIndex = index + 1;
-      index = string.indexOf('\n', endIndex);
+      index = string.indexOf("\n", endIndex);
     } while (index !== -1);
     returnValue += string.substr(endIndex);
     return returnValue;
   };
   module2.exports = {
     stringReplaceAll,
-    stringEncaseCRLFWithFirstIndex,
+    stringEncaseCRLFWithFirstIndex
   };
 });
 
 // ../../node_modules/chalk/source/templates.js
 var require_templates = __commonJS((exports2, module2) => {
-  'use strict';
+  "use strict";
   const TEMPLATE_REGEX = /(?:\\(u(?:[a-f\d]{4}|\{[a-f\d]{1,6}\})|x[a-f\d]{2}|.))|(?:\{(~)?(\w+(?:\([^)]*\))?(?:\.\w+(?:\([^)]*\))?)*)(?:[ \t]|(?=\r?\n)))|(\})|((?:.|[\r\n\f])+?)/gi;
   const STYLE_REGEX = /(?:^|\.)(\w+)(?:\(([^)]*)\))?/g;
   const STRING_REGEX = /^(['"])((?:\\.|(?!\1)[^\\])*)\1$/;
   const ESCAPE_REGEX = /\\(u(?:[a-f\d]{4}|{[a-f\d]{1,6}})|x[a-f\d]{2}|.)|([^\\])/gi;
   const ESCAPES = new Map([
-    ['n', '\n'],
-    ['r', '\r'],
-    ['t', '	'],
-    ['b', '\b'],
-    ['f', '\f'],
-    ['v', '\v'],
-    ['0', '\0'],
-    ['\\', '\\'],
-    ['e', ''],
-    ['a', '\x07'],
+    ["n", "\n"],
+    ["r", "\r"],
+    ["t", "	"],
+    ["b", "\b"],
+    ["f", "\f"],
+    ["v", "\v"],
+    ["0", "\0"],
+    ["\\", "\\"],
+    ["e", ""],
+    ["a", "\x07"]
   ]);
   function unescape(c) {
-    const u = c[0] === 'u';
-    const bracket = c[1] === '{';
-    if ((u && !bracket && c.length === 5) || (c[0] === 'x' && c.length === 3)) {
+    const u = c[0] === "u";
+    const bracket = c[1] === "{";
+    if (u && !bracket && c.length === 5 || c[0] === "x" && c.length === 3) {
       return String.fromCharCode(parseInt(c.slice(1), 16));
     }
     if (u && bracket) {
@@ -1308,10 +1304,8 @@ var require_templates = __commonJS((exports2, module2) => {
       const number = Number(chunk);
       if (!Number.isNaN(number)) {
         results.push(number);
-      } else if ((matches = chunk.match(STRING_REGEX))) {
-        results.push(
-          matches[2].replace(ESCAPE_REGEX, (m, escape, character) => (escape ? unescape(escape) : character))
-        );
+      } else if (matches = chunk.match(STRING_REGEX)) {
+        results.push(matches[2].replace(ESCAPE_REGEX, (m, escape, character) => escape ? unescape(escape) : character));
       } else {
         throw new Error(`Invalid Chalk template style argument: ${chunk} (in style '${name2}')`);
       }
@@ -1360,44 +1354,50 @@ var require_templates = __commonJS((exports2, module2) => {
       if (escapeCharacter) {
         chunk.push(unescape(escapeCharacter));
       } else if (style) {
-        const string = chunk.join('');
+        const string = chunk.join("");
         chunk = [];
         chunks.push(styles.length === 0 ? string : buildStyle(chalk, styles)(string));
-        styles.push({ inverse, styles: parseStyle(style) });
+        styles.push({inverse, styles: parseStyle(style)});
       } else if (close) {
         if (styles.length === 0) {
-          throw new Error('Found extraneous } in Chalk template literal');
+          throw new Error("Found extraneous } in Chalk template literal");
         }
-        chunks.push(buildStyle(chalk, styles)(chunk.join('')));
+        chunks.push(buildStyle(chalk, styles)(chunk.join("")));
         chunk = [];
         styles.pop();
       } else {
         chunk.push(character);
       }
     });
-    chunks.push(chunk.join(''));
+    chunks.push(chunk.join(""));
     if (styles.length > 0) {
-      const errMessage = `Chalk template literal is missing ${styles.length} closing bracket${
-        styles.length === 1 ? '' : 's'
-      } (\`}\`)`;
+      const errMessage = `Chalk template literal is missing ${styles.length} closing bracket${styles.length === 1 ? "" : "s"} (\`}\`)`;
       throw new Error(errMessage);
     }
-    return chunks.join('');
+    return chunks.join("");
   };
 });
 
 // ../../node_modules/chalk/source/index.js
 var require_source = __commonJS((exports2, module2) => {
-  'use strict';
+  "use strict";
   const ansiStyles = require_ansi_styles();
-  const { stdout: stdoutColor, stderr: stderrColor } = require_supports_color();
-  const { stringReplaceAll, stringEncaseCRLFWithFirstIndex } = require_util();
-  const { isArray } = Array;
-  const levelMapping = ['ansi', 'ansi', 'ansi256', 'ansi16m'];
+  const {stdout: stdoutColor, stderr: stderrColor} = require_supports_color();
+  const {
+    stringReplaceAll,
+    stringEncaseCRLFWithFirstIndex
+  } = require_util();
+  const {isArray} = Array;
+  const levelMapping = [
+    "ansi",
+    "ansi",
+    "ansi256",
+    "ansi16m"
+  ];
   const styles = Object.create(null);
   const applyOptions = (object, options = {}) => {
     if (options.level && !(Number.isInteger(options.level) && options.level >= 0 && options.level <= 3)) {
-      throw new Error('The `level` option should be an integer from 0 to 3');
+      throw new Error("The `level` option should be an integer from 0 to 3");
     }
     const colorLevel = stdoutColor ? stdoutColor.level : 0;
     object.level = options.level === void 0 ? colorLevel : options.level;
@@ -1414,7 +1414,7 @@ var require_source = __commonJS((exports2, module2) => {
     Object.setPrototypeOf(chalk2, Chalk.prototype);
     Object.setPrototypeOf(chalk2.template, chalk2);
     chalk2.template.constructor = () => {
-      throw new Error('`chalk.constructor()` is deprecated. Use `new chalk.Instance()` instead.');
+      throw new Error("`chalk.constructor()` is deprecated. Use `new chalk.Instance()` instead.");
     };
     chalk2.template.Instance = ChalkClass;
     return chalk2.template;
@@ -1426,51 +1426,44 @@ var require_source = __commonJS((exports2, module2) => {
     styles[styleName] = {
       get() {
         const builder = createBuilder(this, createStyler(style.open, style.close, this._styler), this._isEmpty);
-        Object.defineProperty(this, styleName, { value: builder });
+        Object.defineProperty(this, styleName, {value: builder});
         return builder;
-      },
+      }
     };
   }
   styles.visible = {
     get() {
       const builder = createBuilder(this, this._styler, true);
-      Object.defineProperty(this, 'visible', { value: builder });
+      Object.defineProperty(this, "visible", {value: builder});
       return builder;
-    },
+    }
   };
-  const usedModels = ['rgb', 'hex', 'keyword', 'hsl', 'hsv', 'hwb', 'ansi', 'ansi256'];
+  const usedModels = ["rgb", "hex", "keyword", "hsl", "hsv", "hwb", "ansi", "ansi256"];
   for (const model of usedModels) {
     styles[model] = {
       get() {
-        const { level } = this;
-        return function (...arguments_) {
-          const styler = createStyler(
-            ansiStyles.color[levelMapping[level]][model](...arguments_),
-            ansiStyles.color.close,
-            this._styler
-          );
+        const {level} = this;
+        return function(...arguments_) {
+          const styler = createStyler(ansiStyles.color[levelMapping[level]][model](...arguments_), ansiStyles.color.close, this._styler);
           return createBuilder(this, styler, this._isEmpty);
         };
-      },
+      }
     };
   }
   for (const model of usedModels) {
-    const bgModel = 'bg' + model[0].toUpperCase() + model.slice(1);
+    const bgModel = "bg" + model[0].toUpperCase() + model.slice(1);
     styles[bgModel] = {
       get() {
-        const { level } = this;
-        return function (...arguments_) {
-          const styler = createStyler(
-            ansiStyles.bgColor[levelMapping[level]][model](...arguments_),
-            ansiStyles.bgColor.close,
-            this._styler
-          );
+        const {level} = this;
+        return function(...arguments_) {
+          const styler = createStyler(ansiStyles.bgColor[levelMapping[level]][model](...arguments_), ansiStyles.bgColor.close, this._styler);
           return createBuilder(this, styler, this._isEmpty);
         };
-      },
+      }
     };
   }
-  const proto = Object.defineProperties(() => {}, {
+  const proto = Object.defineProperties(() => {
+  }, {
     ...styles,
     level: {
       enumerable: true,
@@ -1479,8 +1472,8 @@ var require_source = __commonJS((exports2, module2) => {
       },
       set(level) {
         this._generator.level = level;
-      },
-    },
+      }
+    }
   });
   const createStyler = (open, close, parent) => {
     let openAll;
@@ -1497,7 +1490,7 @@ var require_source = __commonJS((exports2, module2) => {
       close,
       openAll,
       closeAll,
-      parent,
+      parent
     };
   };
   const createBuilder = (self, _styler, _isEmpty) => {
@@ -1505,7 +1498,7 @@ var require_source = __commonJS((exports2, module2) => {
       if (isArray(arguments_[0]) && isArray(arguments_[0].raw)) {
         return applyStyle(builder, chalkTag(builder, ...arguments_));
       }
-      return applyStyle(builder, arguments_.length === 1 ? '' + arguments_[0] : arguments_.join(' '));
+      return applyStyle(builder, arguments_.length === 1 ? "" + arguments_[0] : arguments_.join(" "));
     };
     Object.setPrototypeOf(builder, proto);
     builder._generator = self;
@@ -1515,20 +1508,20 @@ var require_source = __commonJS((exports2, module2) => {
   };
   const applyStyle = (self, string) => {
     if (self.level <= 0 || !string) {
-      return self._isEmpty ? '' : string;
+      return self._isEmpty ? "" : string;
     }
     let styler = self._styler;
     if (styler === void 0) {
       return string;
     }
-    const { openAll, closeAll } = styler;
-    if (string.indexOf('') !== -1) {
+    const {openAll, closeAll} = styler;
+    if (string.indexOf("") !== -1) {
       while (styler !== void 0) {
         string = stringReplaceAll(string, styler.close, styler.open);
         styler = styler.parent;
       }
     }
-    const lfIndex = string.indexOf('\n');
+    const lfIndex = string.indexOf("\n");
     if (lfIndex !== -1) {
       string = stringEncaseCRLFWithFirstIndex(string, closeAll, openAll, lfIndex);
     }
@@ -1538,29 +1531,29 @@ var require_source = __commonJS((exports2, module2) => {
   const chalkTag = (chalk2, ...strings) => {
     const [firstString] = strings;
     if (!isArray(firstString) || !isArray(firstString.raw)) {
-      return strings.join(' ');
+      return strings.join(" ");
     }
     const arguments_ = strings.slice(1);
     const parts = [firstString.raw[0]];
     for (let i = 1; i < firstString.length; i++) {
-      parts.push(String(arguments_[i - 1]).replace(/[{}\\]/g, '\\$&'), String(firstString.raw[i]));
+      parts.push(String(arguments_[i - 1]).replace(/[{}\\]/g, "\\$&"), String(firstString.raw[i]));
     }
     if (template === void 0) {
       template = require_templates();
     }
-    return template(chalk2, parts.join(''));
+    return template(chalk2, parts.join(""));
   };
   Object.defineProperties(Chalk.prototype, styles);
   const chalk = Chalk();
   chalk.supportsColor = stdoutColor;
-  chalk.stderr = Chalk({ level: stderrColor ? stderrColor.level : 0 });
+  chalk.stderr = Chalk({level: stderrColor ? stderrColor.level : 0});
   chalk.stderr.supportsColor = stderrColor;
   module2.exports = chalk;
 });
 
 // ../../node_modules/mimic-fn/index.js
 var require_mimic_fn = __commonJS((exports2, module2) => {
-  'use strict';
+  "use strict";
   const mimicFn = (to, from) => {
     for (const prop of Reflect.ownKeys(from)) {
       Object.defineProperty(to, prop, Object.getOwnPropertyDescriptor(from, prop));
@@ -1573,17 +1566,17 @@ var require_mimic_fn = __commonJS((exports2, module2) => {
 
 // ../../node_modules/onetime/index.js
 var require_onetime = __commonJS((exports2, module2) => {
-  'use strict';
+  "use strict";
   const mimicFn = require_mimic_fn();
   const calledFunctions = new WeakMap();
   const onetime = (function_, options = {}) => {
-    if (typeof function_ !== 'function') {
-      throw new TypeError('Expected a function');
+    if (typeof function_ !== "function") {
+      throw new TypeError("Expected a function");
     }
     let returnValue;
     let callCount = 0;
-    const functionName = function_.displayName || function_.name || '<anonymous>';
-    const onetime2 = function (...arguments_) {
+    const functionName = function_.displayName || function_.name || "<anonymous>";
+    const onetime2 = function(...arguments_) {
       calledFunctions.set(onetime2, ++callCount);
       if (callCount === 1) {
         returnValue = function_.apply(this, arguments_);
@@ -1609,22 +1602,28 @@ var require_onetime = __commonJS((exports2, module2) => {
 
 // ../../node_modules/signal-exit/signals.js
 var require_signals = __commonJS((exports2, module2) => {
-  module2.exports = ['SIGABRT', 'SIGALRM', 'SIGHUP', 'SIGINT', 'SIGTERM'];
-  if (process.platform !== 'win32') {
-    module2.exports.push('SIGVTALRM', 'SIGXCPU', 'SIGXFSZ', 'SIGUSR2', 'SIGTRAP', 'SIGSYS', 'SIGQUIT', 'SIGIOT');
+  module2.exports = [
+    "SIGABRT",
+    "SIGALRM",
+    "SIGHUP",
+    "SIGINT",
+    "SIGTERM"
+  ];
+  if (process.platform !== "win32") {
+    module2.exports.push("SIGVTALRM", "SIGXCPU", "SIGXFSZ", "SIGUSR2", "SIGTRAP", "SIGSYS", "SIGQUIT", "SIGIOT");
   }
-  if (process.platform === 'linux') {
-    module2.exports.push('SIGIO', 'SIGPOLL', 'SIGPWR', 'SIGSTKFLT', 'SIGUNUSED');
+  if (process.platform === "linux") {
+    module2.exports.push("SIGIO", "SIGPOLL", "SIGPWR", "SIGSTKFLT", "SIGUNUSED");
   }
 });
 
 // ../../node_modules/signal-exit/index.js
 var require_signal_exit = __commonJS((exports2, module2) => {
-  var assert = require('assert');
+  var assert = require("assert");
   var signals = require_signals();
   var isWin = /^win/i.test(process.platform);
-  var EE = require('events');
-  if (typeof EE !== 'function') {
+  var EE = require("events");
+  if (typeof EE !== "function") {
     EE = EE.EventEmitter;
   }
   var emitter;
@@ -1639,18 +1638,18 @@ var require_signal_exit = __commonJS((exports2, module2) => {
     emitter.setMaxListeners(Infinity);
     emitter.infinite = true;
   }
-  module2.exports = function (cb, opts) {
-    assert.equal(typeof cb, 'function', 'a callback must be provided for exit handler');
+  module2.exports = function(cb, opts) {
+    assert.equal(typeof cb, "function", "a callback must be provided for exit handler");
     if (loaded === false) {
       load();
     }
-    var ev = 'exit';
+    var ev = "exit";
     if (opts && opts.alwaysLast) {
-      ev = 'afterexit';
+      ev = "afterexit";
     }
-    var remove = function () {
+    var remove = function() {
       emitter.removeListener(ev, cb);
-      if (emitter.listeners('exit').length === 0 && emitter.listeners('afterexit').length === 0) {
+      if (emitter.listeners("exit").length === 0 && emitter.listeners("afterexit").length === 0) {
         unload();
       }
     };
@@ -1663,10 +1662,11 @@ var require_signal_exit = __commonJS((exports2, module2) => {
       return;
     }
     loaded = false;
-    signals.forEach(function (sig) {
+    signals.forEach(function(sig) {
       try {
         process.removeListener(sig, sigListeners[sig]);
-      } catch (er) {}
+      } catch (er) {
+      }
     });
     process.emit = originalProcessEmit;
     process.reallyExit = originalProcessReallyExit;
@@ -1680,21 +1680,21 @@ var require_signal_exit = __commonJS((exports2, module2) => {
     emitter.emit(event, code, signal);
   }
   var sigListeners = {};
-  signals.forEach(function (sig) {
+  signals.forEach(function(sig) {
     sigListeners[sig] = function listener() {
       var listeners = process.listeners(sig);
       if (listeners.length === emitter.count) {
         unload();
-        emit('exit', null, sig);
-        emit('afterexit', null, sig);
-        if (isWin && sig === 'SIGHUP') {
-          sig = 'SIGINT';
+        emit("exit", null, sig);
+        emit("afterexit", null, sig);
+        if (isWin && sig === "SIGHUP") {
+          sig = "SIGINT";
         }
         process.kill(process.pid, sig);
       }
     };
   });
-  module2.exports.signals = function () {
+  module2.exports.signals = function() {
     return signals;
   };
   module2.exports.load = load;
@@ -1705,7 +1705,7 @@ var require_signal_exit = __commonJS((exports2, module2) => {
     }
     loaded = true;
     emitter.count += 1;
-    signals = signals.filter(function (sig) {
+    signals = signals.filter(function(sig) {
       try {
         process.on(sig, sigListeners[sig]);
         return true;
@@ -1719,19 +1719,19 @@ var require_signal_exit = __commonJS((exports2, module2) => {
   var originalProcessReallyExit = process.reallyExit;
   function processReallyExit(code) {
     process.exitCode = code || 0;
-    emit('exit', process.exitCode, null);
-    emit('afterexit', process.exitCode, null);
+    emit("exit", process.exitCode, null);
+    emit("afterexit", process.exitCode, null);
     originalProcessReallyExit.call(process, process.exitCode);
   }
   var originalProcessEmit = process.emit;
   function processEmit(ev, arg) {
-    if (ev === 'exit') {
+    if (ev === "exit") {
       if (arg !== void 0) {
         process.exitCode = arg;
       }
       var ret = originalProcessEmit.apply(this, arguments);
-      emit('exit', process.exitCode, null);
-      emit('afterexit', process.exitCode, null);
+      emit("exit", process.exitCode, null);
+      emit("afterexit", process.exitCode, null);
       return ret;
     } else {
       return originalProcessEmit.apply(this, arguments);
@@ -1741,22 +1741,19 @@ var require_signal_exit = __commonJS((exports2, module2) => {
 
 // ../../node_modules/restore-cursor/index.js
 var require_restore_cursor = __commonJS((exports2, module2) => {
-  'use strict';
+  "use strict";
   const onetime = require_onetime();
   const signalExit = require_signal_exit();
   module2.exports = onetime(() => {
-    signalExit(
-      () => {
-        process.stderr.write('[?25h');
-      },
-      { alwaysLast: true }
-    );
+    signalExit(() => {
+      process.stderr.write("[?25h");
+    }, {alwaysLast: true});
   });
 });
 
 // ../../node_modules/cli-cursor/index.js
 var require_cli_cursor = __commonJS((exports2) => {
-  'use strict';
+  "use strict";
   const restoreCursor = require_restore_cursor();
   let isHidden = false;
   exports2.show = (writableStream = process.stderr) => {
@@ -1764,7 +1761,7 @@ var require_cli_cursor = __commonJS((exports2) => {
       return;
     }
     isHidden = false;
-    writableStream.write('[?25h');
+    writableStream.write("[?25h");
   };
   exports2.hide = (writableStream = process.stderr) => {
     if (!writableStream.isTTY) {
@@ -1772,7 +1769,7 @@ var require_cli_cursor = __commonJS((exports2) => {
     }
     restoreCursor();
     isHidden = true;
-    writableStream.write('[?25l');
+    writableStream.write("[?25l");
   };
   exports2.toggle = (force, writableStream) => {
     if (force !== void 0) {
@@ -1791,1028 +1788,1311 @@ var require_spinners = __commonJS((exports2, module2) => {
   module2.exports = {
     dots: {
       interval: 80,
-      frames: ['\u280B', '\u2819', '\u2839', '\u2838', '\u283C', '\u2834', '\u2826', '\u2827', '\u2807', '\u280F'],
+      frames: [
+        "\u280B",
+        "\u2819",
+        "\u2839",
+        "\u2838",
+        "\u283C",
+        "\u2834",
+        "\u2826",
+        "\u2827",
+        "\u2807",
+        "\u280F"
+      ]
     },
     dots2: {
       interval: 80,
-      frames: ['\u28FE', '\u28FD', '\u28FB', '\u28BF', '\u287F', '\u28DF', '\u28EF', '\u28F7'],
+      frames: [
+        "\u28FE",
+        "\u28FD",
+        "\u28FB",
+        "\u28BF",
+        "\u287F",
+        "\u28DF",
+        "\u28EF",
+        "\u28F7"
+      ]
     },
     dots3: {
       interval: 80,
-      frames: ['\u280B', '\u2819', '\u281A', '\u281E', '\u2816', '\u2826', '\u2834', '\u2832', '\u2833', '\u2813'],
+      frames: [
+        "\u280B",
+        "\u2819",
+        "\u281A",
+        "\u281E",
+        "\u2816",
+        "\u2826",
+        "\u2834",
+        "\u2832",
+        "\u2833",
+        "\u2813"
+      ]
     },
     dots4: {
       interval: 80,
       frames: [
-        '\u2804',
-        '\u2806',
-        '\u2807',
-        '\u280B',
-        '\u2819',
-        '\u2838',
-        '\u2830',
-        '\u2820',
-        '\u2830',
-        '\u2838',
-        '\u2819',
-        '\u280B',
-        '\u2807',
-        '\u2806',
-      ],
+        "\u2804",
+        "\u2806",
+        "\u2807",
+        "\u280B",
+        "\u2819",
+        "\u2838",
+        "\u2830",
+        "\u2820",
+        "\u2830",
+        "\u2838",
+        "\u2819",
+        "\u280B",
+        "\u2807",
+        "\u2806"
+      ]
     },
     dots5: {
       interval: 80,
       frames: [
-        '\u280B',
-        '\u2819',
-        '\u281A',
-        '\u2812',
-        '\u2802',
-        '\u2802',
-        '\u2812',
-        '\u2832',
-        '\u2834',
-        '\u2826',
-        '\u2816',
-        '\u2812',
-        '\u2810',
-        '\u2810',
-        '\u2812',
-        '\u2813',
-        '\u280B',
-      ],
+        "\u280B",
+        "\u2819",
+        "\u281A",
+        "\u2812",
+        "\u2802",
+        "\u2802",
+        "\u2812",
+        "\u2832",
+        "\u2834",
+        "\u2826",
+        "\u2816",
+        "\u2812",
+        "\u2810",
+        "\u2810",
+        "\u2812",
+        "\u2813",
+        "\u280B"
+      ]
     },
     dots6: {
       interval: 80,
       frames: [
-        '\u2801',
-        '\u2809',
-        '\u2819',
-        '\u281A',
-        '\u2812',
-        '\u2802',
-        '\u2802',
-        '\u2812',
-        '\u2832',
-        '\u2834',
-        '\u2824',
-        '\u2804',
-        '\u2804',
-        '\u2824',
-        '\u2834',
-        '\u2832',
-        '\u2812',
-        '\u2802',
-        '\u2802',
-        '\u2812',
-        '\u281A',
-        '\u2819',
-        '\u2809',
-        '\u2801',
-      ],
+        "\u2801",
+        "\u2809",
+        "\u2819",
+        "\u281A",
+        "\u2812",
+        "\u2802",
+        "\u2802",
+        "\u2812",
+        "\u2832",
+        "\u2834",
+        "\u2824",
+        "\u2804",
+        "\u2804",
+        "\u2824",
+        "\u2834",
+        "\u2832",
+        "\u2812",
+        "\u2802",
+        "\u2802",
+        "\u2812",
+        "\u281A",
+        "\u2819",
+        "\u2809",
+        "\u2801"
+      ]
     },
     dots7: {
       interval: 80,
       frames: [
-        '\u2808',
-        '\u2809',
-        '\u280B',
-        '\u2813',
-        '\u2812',
-        '\u2810',
-        '\u2810',
-        '\u2812',
-        '\u2816',
-        '\u2826',
-        '\u2824',
-        '\u2820',
-        '\u2820',
-        '\u2824',
-        '\u2826',
-        '\u2816',
-        '\u2812',
-        '\u2810',
-        '\u2810',
-        '\u2812',
-        '\u2813',
-        '\u280B',
-        '\u2809',
-        '\u2808',
-      ],
+        "\u2808",
+        "\u2809",
+        "\u280B",
+        "\u2813",
+        "\u2812",
+        "\u2810",
+        "\u2810",
+        "\u2812",
+        "\u2816",
+        "\u2826",
+        "\u2824",
+        "\u2820",
+        "\u2820",
+        "\u2824",
+        "\u2826",
+        "\u2816",
+        "\u2812",
+        "\u2810",
+        "\u2810",
+        "\u2812",
+        "\u2813",
+        "\u280B",
+        "\u2809",
+        "\u2808"
+      ]
     },
     dots8: {
       interval: 80,
       frames: [
-        '\u2801',
-        '\u2801',
-        '\u2809',
-        '\u2819',
-        '\u281A',
-        '\u2812',
-        '\u2802',
-        '\u2802',
-        '\u2812',
-        '\u2832',
-        '\u2834',
-        '\u2824',
-        '\u2804',
-        '\u2804',
-        '\u2824',
-        '\u2820',
-        '\u2820',
-        '\u2824',
-        '\u2826',
-        '\u2816',
-        '\u2812',
-        '\u2810',
-        '\u2810',
-        '\u2812',
-        '\u2813',
-        '\u280B',
-        '\u2809',
-        '\u2808',
-        '\u2808',
-      ],
+        "\u2801",
+        "\u2801",
+        "\u2809",
+        "\u2819",
+        "\u281A",
+        "\u2812",
+        "\u2802",
+        "\u2802",
+        "\u2812",
+        "\u2832",
+        "\u2834",
+        "\u2824",
+        "\u2804",
+        "\u2804",
+        "\u2824",
+        "\u2820",
+        "\u2820",
+        "\u2824",
+        "\u2826",
+        "\u2816",
+        "\u2812",
+        "\u2810",
+        "\u2810",
+        "\u2812",
+        "\u2813",
+        "\u280B",
+        "\u2809",
+        "\u2808",
+        "\u2808"
+      ]
     },
     dots9: {
       interval: 80,
-      frames: ['\u28B9', '\u28BA', '\u28BC', '\u28F8', '\u28C7', '\u2867', '\u2857', '\u284F'],
+      frames: [
+        "\u28B9",
+        "\u28BA",
+        "\u28BC",
+        "\u28F8",
+        "\u28C7",
+        "\u2867",
+        "\u2857",
+        "\u284F"
+      ]
     },
     dots10: {
       interval: 80,
-      frames: ['\u2884', '\u2882', '\u2881', '\u2841', '\u2848', '\u2850', '\u2860'],
+      frames: [
+        "\u2884",
+        "\u2882",
+        "\u2881",
+        "\u2841",
+        "\u2848",
+        "\u2850",
+        "\u2860"
+      ]
     },
     dots11: {
       interval: 100,
-      frames: ['\u2801', '\u2802', '\u2804', '\u2840', '\u2880', '\u2820', '\u2810', '\u2808'],
+      frames: [
+        "\u2801",
+        "\u2802",
+        "\u2804",
+        "\u2840",
+        "\u2880",
+        "\u2820",
+        "\u2810",
+        "\u2808"
+      ]
     },
     dots12: {
       interval: 80,
       frames: [
-        '\u2880\u2800',
-        '\u2840\u2800',
-        '\u2804\u2800',
-        '\u2882\u2800',
-        '\u2842\u2800',
-        '\u2805\u2800',
-        '\u2883\u2800',
-        '\u2843\u2800',
-        '\u280D\u2800',
-        '\u288B\u2800',
-        '\u284B\u2800',
-        '\u280D\u2801',
-        '\u288B\u2801',
-        '\u284B\u2801',
-        '\u280D\u2809',
-        '\u280B\u2809',
-        '\u280B\u2809',
-        '\u2809\u2819',
-        '\u2809\u2819',
-        '\u2809\u2829',
-        '\u2808\u2899',
-        '\u2808\u2859',
-        '\u2888\u2829',
-        '\u2840\u2899',
-        '\u2804\u2859',
-        '\u2882\u2829',
-        '\u2842\u2898',
-        '\u2805\u2858',
-        '\u2883\u2828',
-        '\u2843\u2890',
-        '\u280D\u2850',
-        '\u288B\u2820',
-        '\u284B\u2880',
-        '\u280D\u2841',
-        '\u288B\u2801',
-        '\u284B\u2801',
-        '\u280D\u2809',
-        '\u280B\u2809',
-        '\u280B\u2809',
-        '\u2809\u2819',
-        '\u2809\u2819',
-        '\u2809\u2829',
-        '\u2808\u2899',
-        '\u2808\u2859',
-        '\u2808\u2829',
-        '\u2800\u2899',
-        '\u2800\u2859',
-        '\u2800\u2829',
-        '\u2800\u2898',
-        '\u2800\u2858',
-        '\u2800\u2828',
-        '\u2800\u2890',
-        '\u2800\u2850',
-        '\u2800\u2820',
-        '\u2800\u2880',
-        '\u2800\u2840',
-      ],
+        "\u2880\u2800",
+        "\u2840\u2800",
+        "\u2804\u2800",
+        "\u2882\u2800",
+        "\u2842\u2800",
+        "\u2805\u2800",
+        "\u2883\u2800",
+        "\u2843\u2800",
+        "\u280D\u2800",
+        "\u288B\u2800",
+        "\u284B\u2800",
+        "\u280D\u2801",
+        "\u288B\u2801",
+        "\u284B\u2801",
+        "\u280D\u2809",
+        "\u280B\u2809",
+        "\u280B\u2809",
+        "\u2809\u2819",
+        "\u2809\u2819",
+        "\u2809\u2829",
+        "\u2808\u2899",
+        "\u2808\u2859",
+        "\u2888\u2829",
+        "\u2840\u2899",
+        "\u2804\u2859",
+        "\u2882\u2829",
+        "\u2842\u2898",
+        "\u2805\u2858",
+        "\u2883\u2828",
+        "\u2843\u2890",
+        "\u280D\u2850",
+        "\u288B\u2820",
+        "\u284B\u2880",
+        "\u280D\u2841",
+        "\u288B\u2801",
+        "\u284B\u2801",
+        "\u280D\u2809",
+        "\u280B\u2809",
+        "\u280B\u2809",
+        "\u2809\u2819",
+        "\u2809\u2819",
+        "\u2809\u2829",
+        "\u2808\u2899",
+        "\u2808\u2859",
+        "\u2808\u2829",
+        "\u2800\u2899",
+        "\u2800\u2859",
+        "\u2800\u2829",
+        "\u2800\u2898",
+        "\u2800\u2858",
+        "\u2800\u2828",
+        "\u2800\u2890",
+        "\u2800\u2850",
+        "\u2800\u2820",
+        "\u2800\u2880",
+        "\u2800\u2840"
+      ]
     },
     dots8Bit: {
       interval: 80,
       frames: [
-        '\u2800',
-        '\u2801',
-        '\u2802',
-        '\u2803',
-        '\u2804',
-        '\u2805',
-        '\u2806',
-        '\u2807',
-        '\u2840',
-        '\u2841',
-        '\u2842',
-        '\u2843',
-        '\u2844',
-        '\u2845',
-        '\u2846',
-        '\u2847',
-        '\u2808',
-        '\u2809',
-        '\u280A',
-        '\u280B',
-        '\u280C',
-        '\u280D',
-        '\u280E',
-        '\u280F',
-        '\u2848',
-        '\u2849',
-        '\u284A',
-        '\u284B',
-        '\u284C',
-        '\u284D',
-        '\u284E',
-        '\u284F',
-        '\u2810',
-        '\u2811',
-        '\u2812',
-        '\u2813',
-        '\u2814',
-        '\u2815',
-        '\u2816',
-        '\u2817',
-        '\u2850',
-        '\u2851',
-        '\u2852',
-        '\u2853',
-        '\u2854',
-        '\u2855',
-        '\u2856',
-        '\u2857',
-        '\u2818',
-        '\u2819',
-        '\u281A',
-        '\u281B',
-        '\u281C',
-        '\u281D',
-        '\u281E',
-        '\u281F',
-        '\u2858',
-        '\u2859',
-        '\u285A',
-        '\u285B',
-        '\u285C',
-        '\u285D',
-        '\u285E',
-        '\u285F',
-        '\u2820',
-        '\u2821',
-        '\u2822',
-        '\u2823',
-        '\u2824',
-        '\u2825',
-        '\u2826',
-        '\u2827',
-        '\u2860',
-        '\u2861',
-        '\u2862',
-        '\u2863',
-        '\u2864',
-        '\u2865',
-        '\u2866',
-        '\u2867',
-        '\u2828',
-        '\u2829',
-        '\u282A',
-        '\u282B',
-        '\u282C',
-        '\u282D',
-        '\u282E',
-        '\u282F',
-        '\u2868',
-        '\u2869',
-        '\u286A',
-        '\u286B',
-        '\u286C',
-        '\u286D',
-        '\u286E',
-        '\u286F',
-        '\u2830',
-        '\u2831',
-        '\u2832',
-        '\u2833',
-        '\u2834',
-        '\u2835',
-        '\u2836',
-        '\u2837',
-        '\u2870',
-        '\u2871',
-        '\u2872',
-        '\u2873',
-        '\u2874',
-        '\u2875',
-        '\u2876',
-        '\u2877',
-        '\u2838',
-        '\u2839',
-        '\u283A',
-        '\u283B',
-        '\u283C',
-        '\u283D',
-        '\u283E',
-        '\u283F',
-        '\u2878',
-        '\u2879',
-        '\u287A',
-        '\u287B',
-        '\u287C',
-        '\u287D',
-        '\u287E',
-        '\u287F',
-        '\u2880',
-        '\u2881',
-        '\u2882',
-        '\u2883',
-        '\u2884',
-        '\u2885',
-        '\u2886',
-        '\u2887',
-        '\u28C0',
-        '\u28C1',
-        '\u28C2',
-        '\u28C3',
-        '\u28C4',
-        '\u28C5',
-        '\u28C6',
-        '\u28C7',
-        '\u2888',
-        '\u2889',
-        '\u288A',
-        '\u288B',
-        '\u288C',
-        '\u288D',
-        '\u288E',
-        '\u288F',
-        '\u28C8',
-        '\u28C9',
-        '\u28CA',
-        '\u28CB',
-        '\u28CC',
-        '\u28CD',
-        '\u28CE',
-        '\u28CF',
-        '\u2890',
-        '\u2891',
-        '\u2892',
-        '\u2893',
-        '\u2894',
-        '\u2895',
-        '\u2896',
-        '\u2897',
-        '\u28D0',
-        '\u28D1',
-        '\u28D2',
-        '\u28D3',
-        '\u28D4',
-        '\u28D5',
-        '\u28D6',
-        '\u28D7',
-        '\u2898',
-        '\u2899',
-        '\u289A',
-        '\u289B',
-        '\u289C',
-        '\u289D',
-        '\u289E',
-        '\u289F',
-        '\u28D8',
-        '\u28D9',
-        '\u28DA',
-        '\u28DB',
-        '\u28DC',
-        '\u28DD',
-        '\u28DE',
-        '\u28DF',
-        '\u28A0',
-        '\u28A1',
-        '\u28A2',
-        '\u28A3',
-        '\u28A4',
-        '\u28A5',
-        '\u28A6',
-        '\u28A7',
-        '\u28E0',
-        '\u28E1',
-        '\u28E2',
-        '\u28E3',
-        '\u28E4',
-        '\u28E5',
-        '\u28E6',
-        '\u28E7',
-        '\u28A8',
-        '\u28A9',
-        '\u28AA',
-        '\u28AB',
-        '\u28AC',
-        '\u28AD',
-        '\u28AE',
-        '\u28AF',
-        '\u28E8',
-        '\u28E9',
-        '\u28EA',
-        '\u28EB',
-        '\u28EC',
-        '\u28ED',
-        '\u28EE',
-        '\u28EF',
-        '\u28B0',
-        '\u28B1',
-        '\u28B2',
-        '\u28B3',
-        '\u28B4',
-        '\u28B5',
-        '\u28B6',
-        '\u28B7',
-        '\u28F0',
-        '\u28F1',
-        '\u28F2',
-        '\u28F3',
-        '\u28F4',
-        '\u28F5',
-        '\u28F6',
-        '\u28F7',
-        '\u28B8',
-        '\u28B9',
-        '\u28BA',
-        '\u28BB',
-        '\u28BC',
-        '\u28BD',
-        '\u28BE',
-        '\u28BF',
-        '\u28F8',
-        '\u28F9',
-        '\u28FA',
-        '\u28FB',
-        '\u28FC',
-        '\u28FD',
-        '\u28FE',
-        '\u28FF',
-      ],
+        "\u2800",
+        "\u2801",
+        "\u2802",
+        "\u2803",
+        "\u2804",
+        "\u2805",
+        "\u2806",
+        "\u2807",
+        "\u2840",
+        "\u2841",
+        "\u2842",
+        "\u2843",
+        "\u2844",
+        "\u2845",
+        "\u2846",
+        "\u2847",
+        "\u2808",
+        "\u2809",
+        "\u280A",
+        "\u280B",
+        "\u280C",
+        "\u280D",
+        "\u280E",
+        "\u280F",
+        "\u2848",
+        "\u2849",
+        "\u284A",
+        "\u284B",
+        "\u284C",
+        "\u284D",
+        "\u284E",
+        "\u284F",
+        "\u2810",
+        "\u2811",
+        "\u2812",
+        "\u2813",
+        "\u2814",
+        "\u2815",
+        "\u2816",
+        "\u2817",
+        "\u2850",
+        "\u2851",
+        "\u2852",
+        "\u2853",
+        "\u2854",
+        "\u2855",
+        "\u2856",
+        "\u2857",
+        "\u2818",
+        "\u2819",
+        "\u281A",
+        "\u281B",
+        "\u281C",
+        "\u281D",
+        "\u281E",
+        "\u281F",
+        "\u2858",
+        "\u2859",
+        "\u285A",
+        "\u285B",
+        "\u285C",
+        "\u285D",
+        "\u285E",
+        "\u285F",
+        "\u2820",
+        "\u2821",
+        "\u2822",
+        "\u2823",
+        "\u2824",
+        "\u2825",
+        "\u2826",
+        "\u2827",
+        "\u2860",
+        "\u2861",
+        "\u2862",
+        "\u2863",
+        "\u2864",
+        "\u2865",
+        "\u2866",
+        "\u2867",
+        "\u2828",
+        "\u2829",
+        "\u282A",
+        "\u282B",
+        "\u282C",
+        "\u282D",
+        "\u282E",
+        "\u282F",
+        "\u2868",
+        "\u2869",
+        "\u286A",
+        "\u286B",
+        "\u286C",
+        "\u286D",
+        "\u286E",
+        "\u286F",
+        "\u2830",
+        "\u2831",
+        "\u2832",
+        "\u2833",
+        "\u2834",
+        "\u2835",
+        "\u2836",
+        "\u2837",
+        "\u2870",
+        "\u2871",
+        "\u2872",
+        "\u2873",
+        "\u2874",
+        "\u2875",
+        "\u2876",
+        "\u2877",
+        "\u2838",
+        "\u2839",
+        "\u283A",
+        "\u283B",
+        "\u283C",
+        "\u283D",
+        "\u283E",
+        "\u283F",
+        "\u2878",
+        "\u2879",
+        "\u287A",
+        "\u287B",
+        "\u287C",
+        "\u287D",
+        "\u287E",
+        "\u287F",
+        "\u2880",
+        "\u2881",
+        "\u2882",
+        "\u2883",
+        "\u2884",
+        "\u2885",
+        "\u2886",
+        "\u2887",
+        "\u28C0",
+        "\u28C1",
+        "\u28C2",
+        "\u28C3",
+        "\u28C4",
+        "\u28C5",
+        "\u28C6",
+        "\u28C7",
+        "\u2888",
+        "\u2889",
+        "\u288A",
+        "\u288B",
+        "\u288C",
+        "\u288D",
+        "\u288E",
+        "\u288F",
+        "\u28C8",
+        "\u28C9",
+        "\u28CA",
+        "\u28CB",
+        "\u28CC",
+        "\u28CD",
+        "\u28CE",
+        "\u28CF",
+        "\u2890",
+        "\u2891",
+        "\u2892",
+        "\u2893",
+        "\u2894",
+        "\u2895",
+        "\u2896",
+        "\u2897",
+        "\u28D0",
+        "\u28D1",
+        "\u28D2",
+        "\u28D3",
+        "\u28D4",
+        "\u28D5",
+        "\u28D6",
+        "\u28D7",
+        "\u2898",
+        "\u2899",
+        "\u289A",
+        "\u289B",
+        "\u289C",
+        "\u289D",
+        "\u289E",
+        "\u289F",
+        "\u28D8",
+        "\u28D9",
+        "\u28DA",
+        "\u28DB",
+        "\u28DC",
+        "\u28DD",
+        "\u28DE",
+        "\u28DF",
+        "\u28A0",
+        "\u28A1",
+        "\u28A2",
+        "\u28A3",
+        "\u28A4",
+        "\u28A5",
+        "\u28A6",
+        "\u28A7",
+        "\u28E0",
+        "\u28E1",
+        "\u28E2",
+        "\u28E3",
+        "\u28E4",
+        "\u28E5",
+        "\u28E6",
+        "\u28E7",
+        "\u28A8",
+        "\u28A9",
+        "\u28AA",
+        "\u28AB",
+        "\u28AC",
+        "\u28AD",
+        "\u28AE",
+        "\u28AF",
+        "\u28E8",
+        "\u28E9",
+        "\u28EA",
+        "\u28EB",
+        "\u28EC",
+        "\u28ED",
+        "\u28EE",
+        "\u28EF",
+        "\u28B0",
+        "\u28B1",
+        "\u28B2",
+        "\u28B3",
+        "\u28B4",
+        "\u28B5",
+        "\u28B6",
+        "\u28B7",
+        "\u28F0",
+        "\u28F1",
+        "\u28F2",
+        "\u28F3",
+        "\u28F4",
+        "\u28F5",
+        "\u28F6",
+        "\u28F7",
+        "\u28B8",
+        "\u28B9",
+        "\u28BA",
+        "\u28BB",
+        "\u28BC",
+        "\u28BD",
+        "\u28BE",
+        "\u28BF",
+        "\u28F8",
+        "\u28F9",
+        "\u28FA",
+        "\u28FB",
+        "\u28FC",
+        "\u28FD",
+        "\u28FE",
+        "\u28FF"
+      ]
     },
     line: {
       interval: 130,
-      frames: ['-', '\\', '|', '/'],
+      frames: [
+        "-",
+        "\\",
+        "|",
+        "/"
+      ]
     },
     line2: {
       interval: 100,
-      frames: ['\u2802', '-', '\u2013', '\u2014', '\u2013', '-'],
+      frames: [
+        "\u2802",
+        "-",
+        "\u2013",
+        "\u2014",
+        "\u2013",
+        "-"
+      ]
     },
     pipe: {
       interval: 100,
-      frames: ['\u2524', '\u2518', '\u2534', '\u2514', '\u251C', '\u250C', '\u252C', '\u2510'],
+      frames: [
+        "\u2524",
+        "\u2518",
+        "\u2534",
+        "\u2514",
+        "\u251C",
+        "\u250C",
+        "\u252C",
+        "\u2510"
+      ]
     },
     simpleDots: {
       interval: 400,
-      frames: ['.  ', '.. ', '...', '   '],
+      frames: [
+        ".  ",
+        ".. ",
+        "...",
+        "   "
+      ]
     },
     simpleDotsScrolling: {
       interval: 200,
-      frames: ['.  ', '.. ', '...', ' ..', '  .', '   '],
+      frames: [
+        ".  ",
+        ".. ",
+        "...",
+        " ..",
+        "  .",
+        "   "
+      ]
     },
     star: {
       interval: 70,
-      frames: ['\u2736', '\u2738', '\u2739', '\u273A', '\u2739', '\u2737'],
+      frames: [
+        "\u2736",
+        "\u2738",
+        "\u2739",
+        "\u273A",
+        "\u2739",
+        "\u2737"
+      ]
     },
     star2: {
       interval: 80,
-      frames: ['+', 'x', '*'],
+      frames: [
+        "+",
+        "x",
+        "*"
+      ]
     },
     flip: {
       interval: 70,
-      frames: ['_', '_', '_', '-', '`', '`', "'", '\xB4', '-', '_', '_', '_'],
+      frames: [
+        "_",
+        "_",
+        "_",
+        "-",
+        "`",
+        "`",
+        "'",
+        "\xB4",
+        "-",
+        "_",
+        "_",
+        "_"
+      ]
     },
     hamburger: {
       interval: 100,
-      frames: ['\u2631', '\u2632', '\u2634'],
+      frames: [
+        "\u2631",
+        "\u2632",
+        "\u2634"
+      ]
     },
     growVertical: {
       interval: 120,
-      frames: ['\u2581', '\u2583', '\u2584', '\u2585', '\u2586', '\u2587', '\u2586', '\u2585', '\u2584', '\u2583'],
+      frames: [
+        "\u2581",
+        "\u2583",
+        "\u2584",
+        "\u2585",
+        "\u2586",
+        "\u2587",
+        "\u2586",
+        "\u2585",
+        "\u2584",
+        "\u2583"
+      ]
     },
     growHorizontal: {
       interval: 120,
       frames: [
-        '\u258F',
-        '\u258E',
-        '\u258D',
-        '\u258C',
-        '\u258B',
-        '\u258A',
-        '\u2589',
-        '\u258A',
-        '\u258B',
-        '\u258C',
-        '\u258D',
-        '\u258E',
-      ],
+        "\u258F",
+        "\u258E",
+        "\u258D",
+        "\u258C",
+        "\u258B",
+        "\u258A",
+        "\u2589",
+        "\u258A",
+        "\u258B",
+        "\u258C",
+        "\u258D",
+        "\u258E"
+      ]
     },
     balloon: {
       interval: 140,
-      frames: [' ', '.', 'o', 'O', '@', '*', ' '],
+      frames: [
+        " ",
+        ".",
+        "o",
+        "O",
+        "@",
+        "*",
+        " "
+      ]
     },
     balloon2: {
       interval: 120,
-      frames: ['.', 'o', 'O', '\xB0', 'O', 'o', '.'],
+      frames: [
+        ".",
+        "o",
+        "O",
+        "\xB0",
+        "O",
+        "o",
+        "."
+      ]
     },
     noise: {
       interval: 100,
-      frames: ['\u2593', '\u2592', '\u2591'],
+      frames: [
+        "\u2593",
+        "\u2592",
+        "\u2591"
+      ]
     },
     bounce: {
       interval: 120,
-      frames: ['\u2801', '\u2802', '\u2804', '\u2802'],
+      frames: [
+        "\u2801",
+        "\u2802",
+        "\u2804",
+        "\u2802"
+      ]
     },
     boxBounce: {
       interval: 120,
-      frames: ['\u2596', '\u2598', '\u259D', '\u2597'],
+      frames: [
+        "\u2596",
+        "\u2598",
+        "\u259D",
+        "\u2597"
+      ]
     },
     boxBounce2: {
       interval: 100,
-      frames: ['\u258C', '\u2580', '\u2590', '\u2584'],
+      frames: [
+        "\u258C",
+        "\u2580",
+        "\u2590",
+        "\u2584"
+      ]
     },
     triangle: {
       interval: 50,
-      frames: ['\u25E2', '\u25E3', '\u25E4', '\u25E5'],
+      frames: [
+        "\u25E2",
+        "\u25E3",
+        "\u25E4",
+        "\u25E5"
+      ]
     },
     arc: {
       interval: 100,
-      frames: ['\u25DC', '\u25E0', '\u25DD', '\u25DE', '\u25E1', '\u25DF'],
+      frames: [
+        "\u25DC",
+        "\u25E0",
+        "\u25DD",
+        "\u25DE",
+        "\u25E1",
+        "\u25DF"
+      ]
     },
     circle: {
       interval: 120,
-      frames: ['\u25E1', '\u2299', '\u25E0'],
+      frames: [
+        "\u25E1",
+        "\u2299",
+        "\u25E0"
+      ]
     },
     squareCorners: {
       interval: 180,
-      frames: ['\u25F0', '\u25F3', '\u25F2', '\u25F1'],
+      frames: [
+        "\u25F0",
+        "\u25F3",
+        "\u25F2",
+        "\u25F1"
+      ]
     },
     circleQuarters: {
       interval: 120,
-      frames: ['\u25F4', '\u25F7', '\u25F6', '\u25F5'],
+      frames: [
+        "\u25F4",
+        "\u25F7",
+        "\u25F6",
+        "\u25F5"
+      ]
     },
     circleHalves: {
       interval: 50,
-      frames: ['\u25D0', '\u25D3', '\u25D1', '\u25D2'],
+      frames: [
+        "\u25D0",
+        "\u25D3",
+        "\u25D1",
+        "\u25D2"
+      ]
     },
     squish: {
       interval: 100,
-      frames: ['\u256B', '\u256A'],
+      frames: [
+        "\u256B",
+        "\u256A"
+      ]
     },
     toggle: {
       interval: 250,
-      frames: ['\u22B6', '\u22B7'],
+      frames: [
+        "\u22B6",
+        "\u22B7"
+      ]
     },
     toggle2: {
       interval: 80,
-      frames: ['\u25AB', '\u25AA'],
+      frames: [
+        "\u25AB",
+        "\u25AA"
+      ]
     },
     toggle3: {
       interval: 120,
-      frames: ['\u25A1', '\u25A0'],
+      frames: [
+        "\u25A1",
+        "\u25A0"
+      ]
     },
     toggle4: {
       interval: 100,
-      frames: ['\u25A0', '\u25A1', '\u25AA', '\u25AB'],
+      frames: [
+        "\u25A0",
+        "\u25A1",
+        "\u25AA",
+        "\u25AB"
+      ]
     },
     toggle5: {
       interval: 100,
-      frames: ['\u25AE', '\u25AF'],
+      frames: [
+        "\u25AE",
+        "\u25AF"
+      ]
     },
     toggle6: {
       interval: 300,
-      frames: ['\u101D', '\u1040'],
+      frames: [
+        "\u101D",
+        "\u1040"
+      ]
     },
     toggle7: {
       interval: 80,
-      frames: ['\u29BE', '\u29BF'],
+      frames: [
+        "\u29BE",
+        "\u29BF"
+      ]
     },
     toggle8: {
       interval: 100,
-      frames: ['\u25CD', '\u25CC'],
+      frames: [
+        "\u25CD",
+        "\u25CC"
+      ]
     },
     toggle9: {
       interval: 100,
-      frames: ['\u25C9', '\u25CE'],
+      frames: [
+        "\u25C9",
+        "\u25CE"
+      ]
     },
     toggle10: {
       interval: 100,
-      frames: ['\u3282', '\u3280', '\u3281'],
+      frames: [
+        "\u3282",
+        "\u3280",
+        "\u3281"
+      ]
     },
     toggle11: {
       interval: 50,
-      frames: ['\u29C7', '\u29C6'],
+      frames: [
+        "\u29C7",
+        "\u29C6"
+      ]
     },
     toggle12: {
       interval: 120,
-      frames: ['\u2617', '\u2616'],
+      frames: [
+        "\u2617",
+        "\u2616"
+      ]
     },
     toggle13: {
       interval: 80,
-      frames: ['=', '*', '-'],
+      frames: [
+        "=",
+        "*",
+        "-"
+      ]
     },
     arrow: {
       interval: 100,
-      frames: ['\u2190', '\u2196', '\u2191', '\u2197', '\u2192', '\u2198', '\u2193', '\u2199'],
+      frames: [
+        "\u2190",
+        "\u2196",
+        "\u2191",
+        "\u2197",
+        "\u2192",
+        "\u2198",
+        "\u2193",
+        "\u2199"
+      ]
     },
     arrow2: {
       interval: 80,
       frames: [
-        '\u2B06\uFE0F ',
-        '\u2197\uFE0F ',
-        '\u27A1\uFE0F ',
-        '\u2198\uFE0F ',
-        '\u2B07\uFE0F ',
-        '\u2199\uFE0F ',
-        '\u2B05\uFE0F ',
-        '\u2196\uFE0F ',
-      ],
+        "\u2B06\uFE0F ",
+        "\u2197\uFE0F ",
+        "\u27A1\uFE0F ",
+        "\u2198\uFE0F ",
+        "\u2B07\uFE0F ",
+        "\u2199\uFE0F ",
+        "\u2B05\uFE0F ",
+        "\u2196\uFE0F "
+      ]
     },
     arrow3: {
       interval: 120,
       frames: [
-        '\u25B9\u25B9\u25B9\u25B9\u25B9',
-        '\u25B8\u25B9\u25B9\u25B9\u25B9',
-        '\u25B9\u25B8\u25B9\u25B9\u25B9',
-        '\u25B9\u25B9\u25B8\u25B9\u25B9',
-        '\u25B9\u25B9\u25B9\u25B8\u25B9',
-        '\u25B9\u25B9\u25B9\u25B9\u25B8',
-      ],
+        "\u25B9\u25B9\u25B9\u25B9\u25B9",
+        "\u25B8\u25B9\u25B9\u25B9\u25B9",
+        "\u25B9\u25B8\u25B9\u25B9\u25B9",
+        "\u25B9\u25B9\u25B8\u25B9\u25B9",
+        "\u25B9\u25B9\u25B9\u25B8\u25B9",
+        "\u25B9\u25B9\u25B9\u25B9\u25B8"
+      ]
     },
     bouncingBar: {
       interval: 80,
       frames: [
-        '[    ]',
-        '[=   ]',
-        '[==  ]',
-        '[=== ]',
-        '[ ===]',
-        '[  ==]',
-        '[   =]',
-        '[    ]',
-        '[   =]',
-        '[  ==]',
-        '[ ===]',
-        '[====]',
-        '[=== ]',
-        '[==  ]',
-        '[=   ]',
-      ],
+        "[    ]",
+        "[=   ]",
+        "[==  ]",
+        "[=== ]",
+        "[ ===]",
+        "[  ==]",
+        "[   =]",
+        "[    ]",
+        "[   =]",
+        "[  ==]",
+        "[ ===]",
+        "[====]",
+        "[=== ]",
+        "[==  ]",
+        "[=   ]"
+      ]
     },
     bouncingBall: {
       interval: 80,
       frames: [
-        '( \u25CF    )',
-        '(  \u25CF   )',
-        '(   \u25CF  )',
-        '(    \u25CF )',
-        '(     \u25CF)',
-        '(    \u25CF )',
-        '(   \u25CF  )',
-        '(  \u25CF   )',
-        '( \u25CF    )',
-        '(\u25CF     )',
-      ],
+        "( \u25CF    )",
+        "(  \u25CF   )",
+        "(   \u25CF  )",
+        "(    \u25CF )",
+        "(     \u25CF)",
+        "(    \u25CF )",
+        "(   \u25CF  )",
+        "(  \u25CF   )",
+        "( \u25CF    )",
+        "(\u25CF     )"
+      ]
     },
     smiley: {
       interval: 200,
-      frames: ['\u{1F604} ', '\u{1F61D} '],
+      frames: [
+        "\u{1F604} ",
+        "\u{1F61D} "
+      ]
     },
     monkey: {
       interval: 300,
-      frames: ['\u{1F648} ', '\u{1F648} ', '\u{1F649} ', '\u{1F64A} '],
+      frames: [
+        "\u{1F648} ",
+        "\u{1F648} ",
+        "\u{1F649} ",
+        "\u{1F64A} "
+      ]
     },
     hearts: {
       interval: 100,
-      frames: ['\u{1F49B} ', '\u{1F499} ', '\u{1F49C} ', '\u{1F49A} ', '\u2764\uFE0F '],
+      frames: [
+        "\u{1F49B} ",
+        "\u{1F499} ",
+        "\u{1F49C} ",
+        "\u{1F49A} ",
+        "\u2764\uFE0F "
+      ]
     },
     clock: {
       interval: 100,
       frames: [
-        '\u{1F55B} ',
-        '\u{1F550} ',
-        '\u{1F551} ',
-        '\u{1F552} ',
-        '\u{1F553} ',
-        '\u{1F554} ',
-        '\u{1F555} ',
-        '\u{1F556} ',
-        '\u{1F557} ',
-        '\u{1F558} ',
-        '\u{1F559} ',
-        '\u{1F55A} ',
-      ],
+        "\u{1F55B} ",
+        "\u{1F550} ",
+        "\u{1F551} ",
+        "\u{1F552} ",
+        "\u{1F553} ",
+        "\u{1F554} ",
+        "\u{1F555} ",
+        "\u{1F556} ",
+        "\u{1F557} ",
+        "\u{1F558} ",
+        "\u{1F559} ",
+        "\u{1F55A} "
+      ]
     },
     earth: {
       interval: 180,
-      frames: ['\u{1F30D} ', '\u{1F30E} ', '\u{1F30F} '],
+      frames: [
+        "\u{1F30D} ",
+        "\u{1F30E} ",
+        "\u{1F30F} "
+      ]
     },
     material: {
       interval: 17,
       frames: [
-        '\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581',
-        '\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581',
-        '\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581',
-        '\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581',
-        '\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581',
-        '\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581',
-        '\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581',
-        '\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581',
-        '\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581',
-        '\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581',
-        '\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588',
-        '\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588',
-        '\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588',
-        '\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588',
-        '\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588',
-        '\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588',
-        '\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588',
-        '\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588',
-        '\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588',
-        '\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581',
-        '\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581',
-        '\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581',
-        '\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581',
-        '\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581',
-        '\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581',
-      ],
+        "\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581",
+        "\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581",
+        "\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581",
+        "\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581",
+        "\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581",
+        "\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581",
+        "\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581",
+        "\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581",
+        "\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581",
+        "\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581",
+        "\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588",
+        "\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588",
+        "\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588",
+        "\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588",
+        "\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588",
+        "\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588",
+        "\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588",
+        "\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588",
+        "\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588",
+        "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581",
+        "\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581\u2581",
+        "\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581\u2581",
+        "\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581",
+        "\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581\u2581",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581\u2581",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2581",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588\u2588\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2588",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581",
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581"
+      ]
     },
     moon: {
       interval: 80,
       frames: [
-        '\u{1F311} ',
-        '\u{1F312} ',
-        '\u{1F313} ',
-        '\u{1F314} ',
-        '\u{1F315} ',
-        '\u{1F316} ',
-        '\u{1F317} ',
-        '\u{1F318} ',
-      ],
+        "\u{1F311} ",
+        "\u{1F312} ",
+        "\u{1F313} ",
+        "\u{1F314} ",
+        "\u{1F315} ",
+        "\u{1F316} ",
+        "\u{1F317} ",
+        "\u{1F318} "
+      ]
     },
     runner: {
       interval: 140,
-      frames: ['\u{1F6B6} ', '\u{1F3C3} '],
+      frames: [
+        "\u{1F6B6} ",
+        "\u{1F3C3} "
+      ]
     },
     pong: {
       interval: 80,
       frames: [
-        '\u2590\u2802       \u258C',
-        '\u2590\u2808       \u258C',
-        '\u2590 \u2802      \u258C',
-        '\u2590 \u2820      \u258C',
-        '\u2590  \u2840     \u258C',
-        '\u2590  \u2820     \u258C',
-        '\u2590   \u2802    \u258C',
-        '\u2590   \u2808    \u258C',
-        '\u2590    \u2802   \u258C',
-        '\u2590    \u2820   \u258C',
-        '\u2590     \u2840  \u258C',
-        '\u2590     \u2820  \u258C',
-        '\u2590      \u2802 \u258C',
-        '\u2590      \u2808 \u258C',
-        '\u2590       \u2802\u258C',
-        '\u2590       \u2820\u258C',
-        '\u2590       \u2840\u258C',
-        '\u2590      \u2820 \u258C',
-        '\u2590      \u2802 \u258C',
-        '\u2590     \u2808  \u258C',
-        '\u2590     \u2802  \u258C',
-        '\u2590    \u2820   \u258C',
-        '\u2590    \u2840   \u258C',
-        '\u2590   \u2820    \u258C',
-        '\u2590   \u2802    \u258C',
-        '\u2590  \u2808     \u258C',
-        '\u2590  \u2802     \u258C',
-        '\u2590 \u2820      \u258C',
-        '\u2590 \u2840      \u258C',
-        '\u2590\u2820       \u258C',
-      ],
+        "\u2590\u2802       \u258C",
+        "\u2590\u2808       \u258C",
+        "\u2590 \u2802      \u258C",
+        "\u2590 \u2820      \u258C",
+        "\u2590  \u2840     \u258C",
+        "\u2590  \u2820     \u258C",
+        "\u2590   \u2802    \u258C",
+        "\u2590   \u2808    \u258C",
+        "\u2590    \u2802   \u258C",
+        "\u2590    \u2820   \u258C",
+        "\u2590     \u2840  \u258C",
+        "\u2590     \u2820  \u258C",
+        "\u2590      \u2802 \u258C",
+        "\u2590      \u2808 \u258C",
+        "\u2590       \u2802\u258C",
+        "\u2590       \u2820\u258C",
+        "\u2590       \u2840\u258C",
+        "\u2590      \u2820 \u258C",
+        "\u2590      \u2802 \u258C",
+        "\u2590     \u2808  \u258C",
+        "\u2590     \u2802  \u258C",
+        "\u2590    \u2820   \u258C",
+        "\u2590    \u2840   \u258C",
+        "\u2590   \u2820    \u258C",
+        "\u2590   \u2802    \u258C",
+        "\u2590  \u2808     \u258C",
+        "\u2590  \u2802     \u258C",
+        "\u2590 \u2820      \u258C",
+        "\u2590 \u2840      \u258C",
+        "\u2590\u2820       \u258C"
+      ]
     },
     shark: {
       interval: 120,
       frames: [
-        '\u2590|\\____________\u258C',
-        '\u2590_|\\___________\u258C',
-        '\u2590__|\\__________\u258C',
-        '\u2590___|\\_________\u258C',
-        '\u2590____|\\________\u258C',
-        '\u2590_____|\\_______\u258C',
-        '\u2590______|\\______\u258C',
-        '\u2590_______|\\_____\u258C',
-        '\u2590________|\\____\u258C',
-        '\u2590_________|\\___\u258C',
-        '\u2590__________|\\__\u258C',
-        '\u2590___________|\\_\u258C',
-        '\u2590____________|\\\u258C',
-        '\u2590____________/|\u258C',
-        '\u2590___________/|_\u258C',
-        '\u2590__________/|__\u258C',
-        '\u2590_________/|___\u258C',
-        '\u2590________/|____\u258C',
-        '\u2590_______/|_____\u258C',
-        '\u2590______/|______\u258C',
-        '\u2590_____/|_______\u258C',
-        '\u2590____/|________\u258C',
-        '\u2590___/|_________\u258C',
-        '\u2590__/|__________\u258C',
-        '\u2590_/|___________\u258C',
-        '\u2590/|____________\u258C',
-      ],
+        "\u2590|\\____________\u258C",
+        "\u2590_|\\___________\u258C",
+        "\u2590__|\\__________\u258C",
+        "\u2590___|\\_________\u258C",
+        "\u2590____|\\________\u258C",
+        "\u2590_____|\\_______\u258C",
+        "\u2590______|\\______\u258C",
+        "\u2590_______|\\_____\u258C",
+        "\u2590________|\\____\u258C",
+        "\u2590_________|\\___\u258C",
+        "\u2590__________|\\__\u258C",
+        "\u2590___________|\\_\u258C",
+        "\u2590____________|\\\u258C",
+        "\u2590____________/|\u258C",
+        "\u2590___________/|_\u258C",
+        "\u2590__________/|__\u258C",
+        "\u2590_________/|___\u258C",
+        "\u2590________/|____\u258C",
+        "\u2590_______/|_____\u258C",
+        "\u2590______/|______\u258C",
+        "\u2590_____/|_______\u258C",
+        "\u2590____/|________\u258C",
+        "\u2590___/|_________\u258C",
+        "\u2590__/|__________\u258C",
+        "\u2590_/|___________\u258C",
+        "\u2590/|____________\u258C"
+      ]
     },
     dqpb: {
       interval: 100,
-      frames: ['d', 'q', 'p', 'b'],
+      frames: [
+        "d",
+        "q",
+        "p",
+        "b"
+      ]
     },
     weather: {
       interval: 100,
       frames: [
-        '\u2600\uFE0F ',
-        '\u2600\uFE0F ',
-        '\u2600\uFE0F ',
-        '\u{1F324} ',
-        '\u26C5\uFE0F ',
-        '\u{1F325} ',
-        '\u2601\uFE0F ',
-        '\u{1F327} ',
-        '\u{1F328} ',
-        '\u{1F327} ',
-        '\u{1F328} ',
-        '\u{1F327} ',
-        '\u{1F328} ',
-        '\u26C8 ',
-        '\u{1F328} ',
-        '\u{1F327} ',
-        '\u{1F328} ',
-        '\u2601\uFE0F ',
-        '\u{1F325} ',
-        '\u26C5\uFE0F ',
-        '\u{1F324} ',
-        '\u2600\uFE0F ',
-        '\u2600\uFE0F ',
-      ],
+        "\u2600\uFE0F ",
+        "\u2600\uFE0F ",
+        "\u2600\uFE0F ",
+        "\u{1F324} ",
+        "\u26C5\uFE0F ",
+        "\u{1F325} ",
+        "\u2601\uFE0F ",
+        "\u{1F327} ",
+        "\u{1F328} ",
+        "\u{1F327} ",
+        "\u{1F328} ",
+        "\u{1F327} ",
+        "\u{1F328} ",
+        "\u26C8 ",
+        "\u{1F328} ",
+        "\u{1F327} ",
+        "\u{1F328} ",
+        "\u2601\uFE0F ",
+        "\u{1F325} ",
+        "\u26C5\uFE0F ",
+        "\u{1F324} ",
+        "\u2600\uFE0F ",
+        "\u2600\uFE0F "
+      ]
     },
     christmas: {
       interval: 400,
-      frames: ['\u{1F332}', '\u{1F384}'],
+      frames: [
+        "\u{1F332}",
+        "\u{1F384}"
+      ]
     },
     grenade: {
       interval: 80,
       frames: [
-        '\u060C   ',
-        '\u2032   ',
-        ' \xB4 ',
-        ' \u203E ',
-        '  \u2E0C',
-        '  \u2E0A',
-        '  |',
-        '  \u204E',
-        '  \u2055',
-        ' \u0DF4 ',
-        '  \u2053',
-        '   ',
-        '   ',
-        '   ',
-      ],
+        "\u060C   ",
+        "\u2032   ",
+        " \xB4 ",
+        " \u203E ",
+        "  \u2E0C",
+        "  \u2E0A",
+        "  |",
+        "  \u204E",
+        "  \u2055",
+        " \u0DF4 ",
+        "  \u2053",
+        "   ",
+        "   ",
+        "   "
+      ]
     },
     point: {
       interval: 125,
       frames: [
-        '\u2219\u2219\u2219',
-        '\u25CF\u2219\u2219',
-        '\u2219\u25CF\u2219',
-        '\u2219\u2219\u25CF',
-        '\u2219\u2219\u2219',
-      ],
+        "\u2219\u2219\u2219",
+        "\u25CF\u2219\u2219",
+        "\u2219\u25CF\u2219",
+        "\u2219\u2219\u25CF",
+        "\u2219\u2219\u2219"
+      ]
     },
     layer: {
       interval: 150,
-      frames: ['-', '=', '\u2261'],
+      frames: [
+        "-",
+        "=",
+        "\u2261"
+      ]
     },
     betaWave: {
       interval: 80,
       frames: [
-        '\u03C1\u03B2\u03B2\u03B2\u03B2\u03B2\u03B2',
-        '\u03B2\u03C1\u03B2\u03B2\u03B2\u03B2\u03B2',
-        '\u03B2\u03B2\u03C1\u03B2\u03B2\u03B2\u03B2',
-        '\u03B2\u03B2\u03B2\u03C1\u03B2\u03B2\u03B2',
-        '\u03B2\u03B2\u03B2\u03B2\u03C1\u03B2\u03B2',
-        '\u03B2\u03B2\u03B2\u03B2\u03B2\u03C1\u03B2',
-        '\u03B2\u03B2\u03B2\u03B2\u03B2\u03B2\u03C1',
-      ],
+        "\u03C1\u03B2\u03B2\u03B2\u03B2\u03B2\u03B2",
+        "\u03B2\u03C1\u03B2\u03B2\u03B2\u03B2\u03B2",
+        "\u03B2\u03B2\u03C1\u03B2\u03B2\u03B2\u03B2",
+        "\u03B2\u03B2\u03B2\u03C1\u03B2\u03B2\u03B2",
+        "\u03B2\u03B2\u03B2\u03B2\u03C1\u03B2\u03B2",
+        "\u03B2\u03B2\u03B2\u03B2\u03B2\u03C1\u03B2",
+        "\u03B2\u03B2\u03B2\u03B2\u03B2\u03B2\u03C1"
+      ]
     },
     aesthetic: {
       interval: 80,
       frames: [
-        '\u25B0\u25B1\u25B1\u25B1\u25B1\u25B1\u25B1',
-        '\u25B0\u25B0\u25B1\u25B1\u25B1\u25B1\u25B1',
-        '\u25B0\u25B0\u25B0\u25B1\u25B1\u25B1\u25B1',
-        '\u25B0\u25B0\u25B0\u25B0\u25B1\u25B1\u25B1',
-        '\u25B0\u25B0\u25B0\u25B0\u25B0\u25B1\u25B1',
-        '\u25B0\u25B0\u25B0\u25B0\u25B0\u25B0\u25B1',
-        '\u25B0\u25B0\u25B0\u25B0\u25B0\u25B0\u25B0',
-        '\u25B0\u25B1\u25B1\u25B1\u25B1\u25B1\u25B1',
-      ],
-    },
+        "\u25B0\u25B1\u25B1\u25B1\u25B1\u25B1\u25B1",
+        "\u25B0\u25B0\u25B1\u25B1\u25B1\u25B1\u25B1",
+        "\u25B0\u25B0\u25B0\u25B1\u25B1\u25B1\u25B1",
+        "\u25B0\u25B0\u25B0\u25B0\u25B1\u25B1\u25B1",
+        "\u25B0\u25B0\u25B0\u25B0\u25B0\u25B1\u25B1",
+        "\u25B0\u25B0\u25B0\u25B0\u25B0\u25B0\u25B1",
+        "\u25B0\u25B0\u25B0\u25B0\u25B0\u25B0\u25B0",
+        "\u25B0\u25B1\u25B1\u25B1\u25B1\u25B1\u25B1"
+      ]
+    }
   };
 });
 
 // ../../node_modules/cli-spinners/index.js
 var require_cli_spinners = __commonJS((exports2, module2) => {
-  'use strict';
+  "use strict";
   const spinners = Object.assign({}, require_spinners());
   const spinnersList = Object.keys(spinners);
-  Object.defineProperty(spinners, 'random', {
+  Object.defineProperty(spinners, "random", {
     get() {
       const randomIndex = Math.floor(Math.random() * spinnersList.length);
       const spinnerName = spinnersList[randomIndex];
       return spinners[spinnerName];
-    },
+    }
   });
   module2.exports = spinners;
   module2.exports.default = spinners;
@@ -2820,50 +3100,50 @@ var require_cli_spinners = __commonJS((exports2, module2) => {
 
 // ../../node_modules/log-symbols/index.js
 var require_log_symbols = __commonJS((exports2, module2) => {
-  'use strict';
+  "use strict";
   const chalk = require_source();
-  const isSupported = process.platform !== 'win32' || process.env.CI || process.env.TERM === 'xterm-256color';
+  const isSupported = process.platform !== "win32" || process.env.CI || process.env.TERM === "xterm-256color";
   const main = {
-    info: chalk.blue('\u2139'),
-    success: chalk.green('\u2714'),
-    warning: chalk.yellow('\u26A0'),
-    error: chalk.red('\u2716'),
+    info: chalk.blue("\u2139"),
+    success: chalk.green("\u2714"),
+    warning: chalk.yellow("\u26A0"),
+    error: chalk.red("\u2716")
   };
   const fallbacks = {
-    info: chalk.blue('i'),
-    success: chalk.green('\u221A'),
-    warning: chalk.yellow('\u203C'),
-    error: chalk.red('\xD7'),
+    info: chalk.blue("i"),
+    success: chalk.green("\u221A"),
+    warning: chalk.yellow("\u203C"),
+    error: chalk.red("\xD7")
   };
   module2.exports = isSupported ? main : fallbacks;
 });
 
 // ../../node_modules/strip-ansi/node_modules/ansi-regex/index.js
 var require_ansi_regex = __commonJS((exports2, module2) => {
-  'use strict';
-  module2.exports = ({ onlyFirst = false } = {}) => {
+  "use strict";
+  module2.exports = ({onlyFirst = false} = {}) => {
     const pattern = [
-      '[\\u001B\\u009B][[\\]()#;?]*(?:(?:(?:[a-zA-Z\\d]*(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]*)*)?\\u0007)',
-      '(?:(?:\\d{1,4}(?:;\\d{0,4})*)?[\\dA-PR-TZcf-ntqry=><~]))',
-    ].join('|');
-    return new RegExp(pattern, onlyFirst ? void 0 : 'g');
+      "[\\u001B\\u009B][[\\]()#;?]*(?:(?:(?:[a-zA-Z\\d]*(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]*)*)?\\u0007)",
+      "(?:(?:\\d{1,4}(?:;\\d{0,4})*)?[\\dA-PR-TZcf-ntqry=><~]))"
+    ].join("|");
+    return new RegExp(pattern, onlyFirst ? void 0 : "g");
   };
 });
 
 // ../../node_modules/strip-ansi/index.js
 var require_strip_ansi = __commonJS((exports2, module2) => {
-  'use strict';
+  "use strict";
   const ansiRegex = require_ansi_regex();
-  module2.exports = (string) => (typeof string === 'string' ? string.replace(ansiRegex(), '') : string);
+  module2.exports = (string) => typeof string === "string" ? string.replace(ansiRegex(), "") : string;
 });
 
 // ../../node_modules/clone/clone.js
 var require_clone = __commonJS((exports2, module2) => {
-  var clone = (function () {
-    'use strict';
+  var clone = function() {
+    "use strict";
     function clone2(parent, circular, depth, prototype) {
       var filter;
-      if (typeof circular === 'object') {
+      if (typeof circular === "object") {
         depth = circular.depth;
         prototype = circular.prototype;
         filter = circular.filter;
@@ -2871,22 +3151,27 @@ var require_clone = __commonJS((exports2, module2) => {
       }
       var allParents = [];
       var allChildren = [];
-      var useBuffer = typeof Buffer != 'undefined';
-      if (typeof circular == 'undefined') circular = true;
-      if (typeof depth == 'undefined') depth = Infinity;
+      var useBuffer = typeof Buffer != "undefined";
+      if (typeof circular == "undefined")
+        circular = true;
+      if (typeof depth == "undefined")
+        depth = Infinity;
       function _clone(parent2, depth2) {
-        if (parent2 === null) return null;
-        if (depth2 == 0) return parent2;
+        if (parent2 === null)
+          return null;
+        if (depth2 == 0)
+          return parent2;
         var child;
         var proto;
-        if (typeof parent2 != 'object') {
+        if (typeof parent2 != "object") {
           return parent2;
         }
         if (clone2.__isArray(parent2)) {
           child = [];
         } else if (clone2.__isRegExp(parent2)) {
           child = new RegExp(parent2.source, __getRegExpFlags(parent2));
-          if (parent2.lastIndex) child.lastIndex = parent2.lastIndex;
+          if (parent2.lastIndex)
+            child.lastIndex = parent2.lastIndex;
         } else if (clone2.__isDate(parent2)) {
           child = new Date(parent2.getTime());
         } else if (useBuffer && Buffer.isBuffer(parent2)) {
@@ -2898,7 +3183,7 @@ var require_clone = __commonJS((exports2, module2) => {
           parent2.copy(child);
           return child;
         } else {
-          if (typeof prototype == 'undefined') {
+          if (typeof prototype == "undefined") {
             proto = Object.getPrototypeOf(parent2);
             child = Object.create(proto);
           } else {
@@ -2929,38 +3214,48 @@ var require_clone = __commonJS((exports2, module2) => {
       return _clone(parent, depth);
     }
     clone2.clonePrototype = function clonePrototype(parent) {
-      if (parent === null) return null;
-      var c = function () {};
+      if (parent === null)
+        return null;
+      var c = function() {
+      };
       c.prototype = parent;
       return new c();
     };
     function __objToStr(o) {
       return Object.prototype.toString.call(o);
     }
+    ;
     clone2.__objToStr = __objToStr;
     function __isDate(o) {
-      return typeof o === 'object' && __objToStr(o) === '[object Date]';
+      return typeof o === "object" && __objToStr(o) === "[object Date]";
     }
+    ;
     clone2.__isDate = __isDate;
     function __isArray(o) {
-      return typeof o === 'object' && __objToStr(o) === '[object Array]';
+      return typeof o === "object" && __objToStr(o) === "[object Array]";
     }
+    ;
     clone2.__isArray = __isArray;
     function __isRegExp(o) {
-      return typeof o === 'object' && __objToStr(o) === '[object RegExp]';
+      return typeof o === "object" && __objToStr(o) === "[object RegExp]";
     }
+    ;
     clone2.__isRegExp = __isRegExp;
     function __getRegExpFlags(re) {
-      var flags = '';
-      if (re.global) flags += 'g';
-      if (re.ignoreCase) flags += 'i';
-      if (re.multiline) flags += 'm';
+      var flags = "";
+      if (re.global)
+        flags += "g";
+      if (re.ignoreCase)
+        flags += "i";
+      if (re.multiline)
+        flags += "m";
       return flags;
     }
+    ;
     clone2.__getRegExpFlags = __getRegExpFlags;
     return clone2;
-  })();
-  if (typeof module2 === 'object' && module2.exports) {
+  }();
+  if (typeof module2 === "object" && module2.exports) {
     module2.exports = clone;
   }
 });
@@ -2968,10 +3263,10 @@ var require_clone = __commonJS((exports2, module2) => {
 // ../../node_modules/defaults/index.js
 var require_defaults = __commonJS((exports2, module2) => {
   var clone = require_clone();
-  module2.exports = function (options, defaults) {
+  module2.exports = function(options, defaults) {
     options = options || {};
-    Object.keys(defaults).forEach(function (key) {
-      if (typeof options[key] === 'undefined') {
+    Object.keys(defaults).forEach(function(key) {
+      if (typeof options[key] === "undefined") {
         options[key] = clone(defaults[key]);
       }
     });
@@ -3123,69 +3418,63 @@ var require_combining = __commonJS((exports2, module2) => {
     [119362, 119364],
     [917505, 917505],
     [917536, 917631],
-    [917760, 917999],
+    [917760, 917999]
   ];
 });
 
 // ../../node_modules/wcwidth/index.js
 var require_wcwidth = __commonJS((exports2, module2) => {
-  'use strict';
+  "use strict";
   var defaults = require_defaults();
   var combining = require_combining();
   var DEFAULTS = {
     nul: 0,
-    control: 0,
+    control: 0
   };
   module2.exports = function wcwidth2(str) {
     return wcswidth(str, DEFAULTS);
   };
-  module2.exports.config = function (opts) {
+  module2.exports.config = function(opts) {
     opts = defaults(opts || {}, DEFAULTS);
     return function wcwidth2(str) {
       return wcswidth(str, opts);
     };
   };
   function wcswidth(str, opts) {
-    if (typeof str !== 'string') return wcwidth(str, opts);
+    if (typeof str !== "string")
+      return wcwidth(str, opts);
     var s = 0;
     for (var i = 0; i < str.length; i++) {
       var n = wcwidth(str.charCodeAt(i), opts);
-      if (n < 0) return -1;
+      if (n < 0)
+        return -1;
       s += n;
     }
     return s;
   }
   function wcwidth(ucs, opts) {
-    if (ucs === 0) return opts.nul;
-    if (ucs < 32 || (ucs >= 127 && ucs < 160)) return opts.control;
-    if (bisearch(ucs)) return 0;
-    return (
-      1 +
-      (ucs >= 4352 &&
-        (ucs <= 4447 ||
-          ucs == 9001 ||
-          ucs == 9002 ||
-          (ucs >= 11904 && ucs <= 42191 && ucs != 12351) ||
-          (ucs >= 44032 && ucs <= 55203) ||
-          (ucs >= 63744 && ucs <= 64255) ||
-          (ucs >= 65040 && ucs <= 65049) ||
-          (ucs >= 65072 && ucs <= 65135) ||
-          (ucs >= 65280 && ucs <= 65376) ||
-          (ucs >= 65504 && ucs <= 65510) ||
-          (ucs >= 131072 && ucs <= 196605) ||
-          (ucs >= 196608 && ucs <= 262141)))
-    );
+    if (ucs === 0)
+      return opts.nul;
+    if (ucs < 32 || ucs >= 127 && ucs < 160)
+      return opts.control;
+    if (bisearch(ucs))
+      return 0;
+    return 1 + (ucs >= 4352 && (ucs <= 4447 || ucs == 9001 || ucs == 9002 || ucs >= 11904 && ucs <= 42191 && ucs != 12351 || ucs >= 44032 && ucs <= 55203 || ucs >= 63744 && ucs <= 64255 || ucs >= 65040 && ucs <= 65049 || ucs >= 65072 && ucs <= 65135 || ucs >= 65280 && ucs <= 65376 || ucs >= 65504 && ucs <= 65510 || ucs >= 131072 && ucs <= 196605 || ucs >= 196608 && ucs <= 262141));
   }
   function bisearch(ucs) {
     var min = 0;
     var max = combining.length - 1;
     var mid;
-    if (ucs < combining[0][0] || ucs > combining[max][1]) return false;
+    if (ucs < combining[0][0] || ucs > combining[max][1])
+      return false;
     while (max >= min) {
       mid = Math.floor((min + max) / 2);
-      if (ucs > combining[mid][1]) min = mid + 1;
-      else if (ucs < combining[mid][0]) max = mid - 1;
-      else return true;
+      if (ucs > combining[mid][1])
+        min = mid + 1;
+      else if (ucs < combining[mid][0])
+        max = mid - 1;
+      else
+        return true;
     }
     return false;
   }
@@ -3193,90 +3482,93 @@ var require_wcwidth = __commonJS((exports2, module2) => {
 
 // ../../node_modules/is-interactive/index.js
 var require_is_interactive = __commonJS((exports2, module2) => {
-  'use strict';
-  module2.exports = ({ stream = process.stdout } = {}) => {
-    return Boolean(stream && stream.isTTY && process.env.TERM !== 'dumb' && !('CI' in process.env));
+  "use strict";
+  module2.exports = ({stream = process.stdout} = {}) => {
+    return Boolean(stream && stream.isTTY && process.env.TERM !== "dumb" && !("CI" in process.env));
   };
 });
 
 // ../../node_modules/mute-stream/mute.js
 var require_mute = __commonJS((exports2, module2) => {
-  var Stream = require('stream');
+  var Stream = require("stream");
   module2.exports = MuteStream;
   function MuteStream(opts) {
     Stream.apply(this);
     opts = opts || {};
     this.writable = this.readable = true;
     this.muted = false;
-    this.on('pipe', this._onpipe);
+    this.on("pipe", this._onpipe);
     this.replace = opts.replace;
     this._prompt = opts.prompt || null;
     this._hadControl = false;
   }
   MuteStream.prototype = Object.create(Stream.prototype);
-  Object.defineProperty(MuteStream.prototype, 'constructor', {
+  Object.defineProperty(MuteStream.prototype, "constructor", {
     value: MuteStream,
-    enumerable: false,
+    enumerable: false
   });
-  MuteStream.prototype.mute = function () {
+  MuteStream.prototype.mute = function() {
     this.muted = true;
   };
-  MuteStream.prototype.unmute = function () {
+  MuteStream.prototype.unmute = function() {
     this.muted = false;
   };
-  Object.defineProperty(MuteStream.prototype, '_onpipe', {
+  Object.defineProperty(MuteStream.prototype, "_onpipe", {
     value: onPipe,
     enumerable: false,
     writable: true,
-    configurable: true,
+    configurable: true
   });
   function onPipe(src) {
     this._src = src;
   }
-  Object.defineProperty(MuteStream.prototype, 'isTTY', {
+  Object.defineProperty(MuteStream.prototype, "isTTY", {
     get: getIsTTY,
     set: setIsTTY,
     enumerable: true,
-    configurable: true,
+    configurable: true
   });
   function getIsTTY() {
     return this._dest ? this._dest.isTTY : this._src ? this._src.isTTY : false;
   }
   function setIsTTY(isTTY) {
-    Object.defineProperty(this, 'isTTY', {
+    Object.defineProperty(this, "isTTY", {
       value: isTTY,
       enumerable: true,
       writable: true,
-      configurable: true,
+      configurable: true
     });
   }
-  Object.defineProperty(MuteStream.prototype, 'rows', {
-    get: function () {
+  Object.defineProperty(MuteStream.prototype, "rows", {
+    get: function() {
       return this._dest ? this._dest.rows : this._src ? this._src.rows : void 0;
     },
     enumerable: true,
-    configurable: true,
+    configurable: true
   });
-  Object.defineProperty(MuteStream.prototype, 'columns', {
-    get: function () {
+  Object.defineProperty(MuteStream.prototype, "columns", {
+    get: function() {
       return this._dest ? this._dest.columns : this._src ? this._src.columns : void 0;
     },
     enumerable: true,
-    configurable: true,
+    configurable: true
   });
-  MuteStream.prototype.pipe = function (dest, options) {
+  MuteStream.prototype.pipe = function(dest, options) {
     this._dest = dest;
     return Stream.prototype.pipe.call(this, dest, options);
   };
-  MuteStream.prototype.pause = function () {
-    if (this._src) return this._src.pause();
+  MuteStream.prototype.pause = function() {
+    if (this._src)
+      return this._src.pause();
   };
-  MuteStream.prototype.resume = function () {
-    if (this._src) return this._src.resume();
+  MuteStream.prototype.resume = function() {
+    if (this._src)
+      return this._src.resume();
   };
-  MuteStream.prototype.write = function (c) {
+  MuteStream.prototype.write = function(c) {
     if (this.muted) {
-      if (!this.replace) return true;
+      if (!this.replace)
+        return true;
       if (c.match(/^\u001b/)) {
         if (c.indexOf(this._prompt) === 0) {
           c = c.substr(this._prompt.length);
@@ -3284,19 +3576,19 @@ var require_mute = __commonJS((exports2, module2) => {
           c = this._prompt + c;
         }
         this._hadControl = true;
-        return this.emit('data', c);
+        return this.emit("data", c);
       } else {
         if (this._prompt && this._hadControl && c.indexOf(this._prompt) === 0) {
           this._hadControl = false;
-          this.emit('data', this._prompt);
+          this.emit("data", this._prompt);
           c = c.substr(this._prompt.length);
         }
         c = c.toString().replace(/./g, this.replace);
       }
     }
-    this.emit('data', c);
+    this.emit("data", c);
   };
-  MuteStream.prototype.end = function (c) {
+  MuteStream.prototype.end = function(c) {
     if (this.muted) {
       if (c && this.replace) {
         c = c.toString().replace(/./g, this.replace);
@@ -3304,26 +3596,29 @@ var require_mute = __commonJS((exports2, module2) => {
         c = null;
       }
     }
-    if (c) this.emit('data', c);
-    this.emit('end');
+    if (c)
+      this.emit("data", c);
+    this.emit("end");
   };
   function proxy(fn) {
-    return function () {
+    return function() {
       var d = this._dest;
       var s = this._src;
-      if (d && d[fn]) d[fn].apply(d, arguments);
-      if (s && s[fn]) s[fn].apply(s, arguments);
+      if (d && d[fn])
+        d[fn].apply(d, arguments);
+      if (s && s[fn])
+        s[fn].apply(s, arguments);
     };
   }
-  MuteStream.prototype.destroy = proxy('destroy');
-  MuteStream.prototype.destroySoon = proxy('destroySoon');
-  MuteStream.prototype.close = proxy('close');
+  MuteStream.prototype.destroy = proxy("destroy");
+  MuteStream.prototype.destroySoon = proxy("destroySoon");
+  MuteStream.prototype.close = proxy("close");
 });
 
 // ../../node_modules/ora/index.js
 var require_ora = __commonJS((exports2, module2) => {
-  'use strict';
-  const readline = require('readline');
+  "use strict";
+  const readline = require("readline");
   const chalk = require_source();
   const cliCursor = require_cli_cursor();
   const cliSpinners = require_cli_spinners();
@@ -3332,8 +3627,8 @@ var require_ora = __commonJS((exports2, module2) => {
   const wcwidth = require_wcwidth();
   const isInteractive = require_is_interactive();
   const MuteStream = require_mute();
-  const TEXT = Symbol('text');
-  const PREFIX_TEXT = Symbol('prefixText');
+  const TEXT = Symbol("text");
+  const PREFIX_TEXT = Symbol("prefixText");
   const ASCII_ETX_CODE = 3;
   class StdinDiscarder {
     constructor() {
@@ -3342,14 +3637,14 @@ var require_ora = __commonJS((exports2, module2) => {
       this.mutedStream.pipe(process.stdout);
       this.mutedStream.mute();
       const self = this;
-      this.ourEmit = function (event, data, ...args) {
-        const { stdin } = process;
+      this.ourEmit = function(event, data, ...args) {
+        const {stdin} = process;
         if (self.requests > 0 || stdin.emit === self.ourEmit) {
-          if (event === 'keypress') {
+          if (event === "keypress") {
             return;
           }
-          if (event === 'data' && data.includes(ASCII_ETX_CODE)) {
-            process.emit('SIGINT');
+          if (event === "data" && data.includes(ASCII_ETX_CODE)) {
+            process.emit("SIGINT");
           }
           Reflect.apply(self.oldEmit, this, [event, data, ...args]);
         } else {
@@ -3365,7 +3660,7 @@ var require_ora = __commonJS((exports2, module2) => {
     }
     stop() {
       if (this.requests <= 0) {
-        throw new Error('`stop` called more times than `start`');
+        throw new Error("`stop` called more times than `start`");
       }
       this.requests--;
       if (this.requests === 0) {
@@ -3373,24 +3668,24 @@ var require_ora = __commonJS((exports2, module2) => {
       }
     }
     realStart() {
-      if (process.platform === 'win32') {
+      if (process.platform === "win32") {
         return;
       }
       this.rl = readline.createInterface({
         input: process.stdin,
-        output: this.mutedStream,
+        output: this.mutedStream
       });
-      this.rl.on('SIGINT', () => {
-        if (process.listenerCount('SIGINT') === 0) {
-          process.emit('SIGINT');
+      this.rl.on("SIGINT", () => {
+        if (process.listenerCount("SIGINT") === 0) {
+          process.emit("SIGINT");
         } else {
           this.rl.close();
-          process.kill(process.pid, 'SIGINT');
+          process.kill(process.pid, "SIGINT");
         }
       });
     }
     realStop() {
-      if (process.platform === 'win32') {
+      if (process.platform === "win32") {
         return;
       }
       this.rl.close();
@@ -3403,17 +3698,17 @@ var require_ora = __commonJS((exports2, module2) => {
       if (!stdinDiscarder) {
         stdinDiscarder = new StdinDiscarder();
       }
-      if (typeof options === 'string') {
+      if (typeof options === "string") {
         options = {
-          text: options,
+          text: options
         };
       }
       this.options = {
-        text: '',
-        color: 'cyan',
+        text: "",
+        color: "cyan",
         stream: process.stderr,
         discardStdin: true,
-        ...options,
+        ...options
       };
       this.spinner = this.options.spinner;
       this.color = this.options.color;
@@ -3421,9 +3716,8 @@ var require_ora = __commonJS((exports2, module2) => {
       this.interval = this.options.interval || this.spinner.interval || 100;
       this.stream = this.options.stream;
       this.id = void 0;
-      this.isEnabled =
-        typeof this.options.isEnabled === 'boolean' ? this.options.isEnabled : isInteractive({ stream: this.stream });
-      this.isSilent = typeof this.options.isSilent === 'boolean' ? this.options.isSilent : false;
+      this.isEnabled = typeof this.options.isEnabled === "boolean" ? this.options.isEnabled : isInteractive({stream: this.stream});
+      this.isSilent = typeof this.options.isSilent === "boolean" ? this.options.isSilent : false;
       this.text = this.options.text;
       this.prefixText = this.options.prefixText;
       this.linesToClear = 0;
@@ -3436,7 +3730,7 @@ var require_ora = __commonJS((exports2, module2) => {
     }
     set indent(indent = 0) {
       if (!(indent >= 0 && Number.isInteger(indent))) {
-        throw new Error('The `indent` option must be an integer from 0 and up');
+        throw new Error("The `indent` option must be an integer from 0 and up");
       }
       this._indent = indent;
     }
@@ -3450,21 +3744,19 @@ var require_ora = __commonJS((exports2, module2) => {
     }
     set spinner(spinner) {
       this.frameIndex = 0;
-      if (typeof spinner === 'object') {
+      if (typeof spinner === "object") {
         if (spinner.frames === void 0) {
-          throw new Error('The given spinner must have a `frames` property');
+          throw new Error("The given spinner must have a `frames` property");
         }
         this._spinner = spinner;
-      } else if (process.platform === 'win32') {
+      } else if (process.platform === "win32") {
         this._spinner = cliSpinners.line;
       } else if (spinner === void 0) {
         this._spinner = cliSpinners.dots;
       } else if (cliSpinners[spinner]) {
         this._spinner = cliSpinners[spinner];
       } else {
-        throw new Error(
-          `There is no built-in spinner named '${spinner}'. See https://github.com/sindresorhus/cli-spinners/blob/master/spinners.json for a full list.`
-        );
+        throw new Error(`There is no built-in spinner named '${spinner}'. See https://github.com/sindresorhus/cli-spinners/blob/master/spinners.json for a full list.`);
       }
       this._updateInterval(this._spinner.interval);
     }
@@ -3477,23 +3769,21 @@ var require_ora = __commonJS((exports2, module2) => {
     get isSpinning() {
       return this.id !== void 0;
     }
-    getFullPrefixText(prefixText = this[PREFIX_TEXT], postfix = ' ') {
-      if (typeof prefixText === 'string') {
+    getFullPrefixText(prefixText = this[PREFIX_TEXT], postfix = " ") {
+      if (typeof prefixText === "string") {
         return prefixText + postfix;
       }
-      if (typeof prefixText === 'function') {
+      if (typeof prefixText === "function") {
         return prefixText() + postfix;
       }
-      return '';
+      return "";
     }
     updateLineCount() {
       const columns = this.stream.columns || 80;
-      const fullPrefixText = this.getFullPrefixText(this.prefixText, '-');
-      this.lineCount = stripAnsi(fullPrefixText + '--' + this[TEXT])
-        .split('\n')
-        .reduce((count, line) => {
-          return count + Math.max(1, Math.ceil(wcwidth(line) / columns));
-        }, 0);
+      const fullPrefixText = this.getFullPrefixText(this.prefixText, "-");
+      this.lineCount = stripAnsi(fullPrefixText + "--" + this[TEXT]).split("\n").reduce((count, line) => {
+        return count + Math.max(1, Math.ceil(wcwidth(line) / columns));
+      }, 0);
     }
     set text(value) {
       this[TEXT] = value;
@@ -3507,8 +3797,8 @@ var require_ora = __commonJS((exports2, module2) => {
       return this._isEnabled && !this.isSilent;
     }
     set isEnabled(value) {
-      if (typeof value !== 'boolean') {
-        throw new TypeError('The `isEnabled` option must be a boolean');
+      if (typeof value !== "boolean") {
+        throw new TypeError("The `isEnabled` option must be a boolean");
       }
       this._isEnabled = value;
     }
@@ -3516,20 +3806,20 @@ var require_ora = __commonJS((exports2, module2) => {
       return this._isSilent;
     }
     set isSilent(value) {
-      if (typeof value !== 'boolean') {
-        throw new TypeError('The `isSilent` option must be a boolean');
+      if (typeof value !== "boolean") {
+        throw new TypeError("The `isSilent` option must be a boolean");
       }
       this._isSilent = value;
     }
     frame() {
-      const { frames } = this.spinner;
+      const {frames} = this.spinner;
       let frame = frames[this.frameIndex];
       if (this.color) {
         frame = chalk[this.color](frame);
       }
       this.frameIndex = ++this.frameIndex % frames.length;
-      const fullPrefixText = typeof this.prefixText === 'string' && this.prefixText !== '' ? this.prefixText + ' ' : '';
-      const fullText = typeof this.text === 'string' ? ' ' + this.text : '';
+      const fullPrefixText = typeof this.prefixText === "string" && this.prefixText !== "" ? this.prefixText + " " : "";
+      const fullText = typeof this.text === "string" ? " " + this.text : "";
       return fullPrefixText + frame + fullText;
     }
     clear() {
@@ -3601,16 +3891,16 @@ var require_ora = __commonJS((exports2, module2) => {
       return this;
     }
     succeed(text) {
-      return this.stopAndPersist({ symbol: logSymbols.success, text });
+      return this.stopAndPersist({symbol: logSymbols.success, text});
     }
     fail(text) {
-      return this.stopAndPersist({ symbol: logSymbols.error, text });
+      return this.stopAndPersist({symbol: logSymbols.error, text});
     }
     warn(text) {
-      return this.stopAndPersist({ symbol: logSymbols.warning, text });
+      return this.stopAndPersist({symbol: logSymbols.warning, text});
     }
     info(text) {
-      return this.stopAndPersist({ symbol: logSymbols.info, text });
+      return this.stopAndPersist({symbol: logSymbols.info, text});
     }
     stopAndPersist(options = {}) {
       if (this.isSilent) {
@@ -3618,20 +3908,20 @@ var require_ora = __commonJS((exports2, module2) => {
       }
       const prefixText = options.prefixText || this.prefixText;
       const text = options.text || this.text;
-      const fullText = typeof text === 'string' ? ' ' + text : '';
+      const fullText = typeof text === "string" ? " " + text : "";
       this.stop();
-      this.stream.write(`${this.getFullPrefixText(prefixText, ' ')}${options.symbol || ' '}${fullText}
+      this.stream.write(`${this.getFullPrefixText(prefixText, " ")}${options.symbol || " "}${fullText}
 `);
       return this;
     }
   }
-  const oraFactory = function (options) {
+  const oraFactory = function(options) {
     return new Ora(options);
   };
   module2.exports = oraFactory;
   module2.exports.promise = (action, options) => {
-    if (typeof action.then !== 'function') {
-      throw new TypeError('Parameter `action` must be a Promise');
+    if (typeof action.then !== "function") {
+      throw new TypeError("Parameter `action` must be a Promise");
     }
     const spinner = new Ora(options);
     spinner.start();
@@ -3655,67 +3945,65 @@ var require_ms = __commonJS((exports2, module2) => {
   var d = h * 24;
   var w = d * 7;
   var y = d * 365.25;
-  module2.exports = function (val, options) {
+  module2.exports = function(val, options) {
     options = options || {};
     var type = typeof val;
-    if (type === 'string' && val.length > 0) {
+    if (type === "string" && val.length > 0) {
       return parse(val);
-    } else if (type === 'number' && isFinite(val)) {
+    } else if (type === "number" && isFinite(val)) {
       return options.long ? fmtLong(val) : fmtShort(val);
     }
-    throw new Error('val is not a non-empty string or a valid number. val=' + JSON.stringify(val));
+    throw new Error("val is not a non-empty string or a valid number. val=" + JSON.stringify(val));
   };
   function parse(str) {
     str = String(str);
     if (str.length > 100) {
       return;
     }
-    var match = /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(
-      str
-    );
+    var match = /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(str);
     if (!match) {
       return;
     }
     var n = parseFloat(match[1]);
-    var type = (match[2] || 'ms').toLowerCase();
+    var type = (match[2] || "ms").toLowerCase();
     switch (type) {
-      case 'years':
-      case 'year':
-      case 'yrs':
-      case 'yr':
-      case 'y':
+      case "years":
+      case "year":
+      case "yrs":
+      case "yr":
+      case "y":
         return n * y;
-      case 'weeks':
-      case 'week':
-      case 'w':
+      case "weeks":
+      case "week":
+      case "w":
         return n * w;
-      case 'days':
-      case 'day':
-      case 'd':
+      case "days":
+      case "day":
+      case "d":
         return n * d;
-      case 'hours':
-      case 'hour':
-      case 'hrs':
-      case 'hr':
-      case 'h':
+      case "hours":
+      case "hour":
+      case "hrs":
+      case "hr":
+      case "h":
         return n * h;
-      case 'minutes':
-      case 'minute':
-      case 'mins':
-      case 'min':
-      case 'm':
+      case "minutes":
+      case "minute":
+      case "mins":
+      case "min":
+      case "m":
         return n * m;
-      case 'seconds':
-      case 'second':
-      case 'secs':
-      case 'sec':
-      case 's':
+      case "seconds":
+      case "second":
+      case "secs":
+      case "sec":
+      case "s":
         return n * s;
-      case 'milliseconds':
-      case 'millisecond':
-      case 'msecs':
-      case 'msec':
-      case 'ms':
+      case "milliseconds":
+      case "millisecond":
+      case "msecs":
+      case "msec":
+      case "ms":
         return n;
       default:
         return void 0;
@@ -3724,38 +4012,38 @@ var require_ms = __commonJS((exports2, module2) => {
   function fmtShort(ms) {
     var msAbs = Math.abs(ms);
     if (msAbs >= d) {
-      return Math.round(ms / d) + 'd';
+      return Math.round(ms / d) + "d";
     }
     if (msAbs >= h) {
-      return Math.round(ms / h) + 'h';
+      return Math.round(ms / h) + "h";
     }
     if (msAbs >= m) {
-      return Math.round(ms / m) + 'm';
+      return Math.round(ms / m) + "m";
     }
     if (msAbs >= s) {
-      return Math.round(ms / s) + 's';
+      return Math.round(ms / s) + "s";
     }
-    return ms + 'ms';
+    return ms + "ms";
   }
   function fmtLong(ms) {
     var msAbs = Math.abs(ms);
     if (msAbs >= d) {
-      return plural(ms, msAbs, d, 'day');
+      return plural(ms, msAbs, d, "day");
     }
     if (msAbs >= h) {
-      return plural(ms, msAbs, h, 'hour');
+      return plural(ms, msAbs, h, "hour");
     }
     if (msAbs >= m) {
-      return plural(ms, msAbs, m, 'minute');
+      return plural(ms, msAbs, m, "minute");
     }
     if (msAbs >= s) {
-      return plural(ms, msAbs, s, 'second');
+      return plural(ms, msAbs, s, "second");
     }
-    return ms + ' ms';
+    return ms + " ms";
   }
   function plural(ms, msAbs, n, name2) {
     var isPlural = msAbs >= n * 1.5;
-    return Math.round(ms / n) + ' ' + name2 + (isPlural ? 's' : '');
+    return Math.round(ms / n) + " " + name2 + (isPlural ? "s" : "");
   }
 });
 
@@ -3799,17 +4087,17 @@ var require_common = __commonJS((exports2, module2) => {
         self.curr = curr;
         prevTime = curr;
         args[0] = createDebug.coerce(args[0]);
-        if (typeof args[0] !== 'string') {
-          args.unshift('%O');
+        if (typeof args[0] !== "string") {
+          args.unshift("%O");
         }
         let index = 0;
         args[0] = args[0].replace(/%([a-zA-Z%])/g, (match, format) => {
-          if (match === '%%') {
+          if (match === "%%") {
             return match;
           }
           index++;
           const formatter = createDebug.formatters[format];
-          if (typeof formatter === 'function') {
+          if (typeof formatter === "function") {
             const val = args[index];
             match = formatter.call(self, val);
             args.splice(index, 1);
@@ -3827,7 +4115,7 @@ var require_common = __commonJS((exports2, module2) => {
       debug5.color = createDebug.selectColor(namespace);
       debug5.destroy = destroy;
       debug5.extend = extend;
-      if (typeof createDebug.init === 'function') {
+      if (typeof createDebug.init === "function") {
         createDebug.init(debug5);
       }
       createDebug.instances.push(debug5);
@@ -3842,7 +4130,7 @@ var require_common = __commonJS((exports2, module2) => {
       return false;
     }
     function extend(namespace, delimiter) {
-      const newDebug = createDebug(this.namespace + (typeof delimiter === 'undefined' ? ':' : delimiter) + namespace);
+      const newDebug = createDebug(this.namespace + (typeof delimiter === "undefined" ? ":" : delimiter) + namespace);
       newDebug.log = this.log;
       return newDebug;
     }
@@ -3851,17 +4139,17 @@ var require_common = __commonJS((exports2, module2) => {
       createDebug.names = [];
       createDebug.skips = [];
       let i;
-      const split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/);
+      const split = (typeof namespaces === "string" ? namespaces : "").split(/[\s,]+/);
       const len = split.length;
       for (i = 0; i < len; i++) {
         if (!split[i]) {
           continue;
         }
-        namespaces = split[i].replace(/\*/g, '.*?');
-        if (namespaces[0] === '-') {
-          createDebug.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
+        namespaces = split[i].replace(/\*/g, ".*?");
+        if (namespaces[0] === "-") {
+          createDebug.skips.push(new RegExp("^" + namespaces.substr(1) + "$"));
         } else {
-          createDebug.names.push(new RegExp('^' + namespaces + '$'));
+          createDebug.names.push(new RegExp("^" + namespaces + "$"));
         }
       }
       for (i = 0; i < createDebug.instances.length; i++) {
@@ -3872,13 +4160,13 @@ var require_common = __commonJS((exports2, module2) => {
     function disable() {
       const namespaces = [
         ...createDebug.names.map(toNamespace),
-        ...createDebug.skips.map(toNamespace).map((namespace) => '-' + namespace),
-      ].join(',');
-      createDebug.enable('');
+        ...createDebug.skips.map(toNamespace).map((namespace) => "-" + namespace)
+      ].join(",");
+      createDebug.enable("");
       return namespaces;
     }
     function enabled(name2) {
-      if (name2[name2.length - 1] === '*') {
+      if (name2[name2.length - 1] === "*") {
         return true;
       }
       let i;
@@ -3896,10 +4184,7 @@ var require_common = __commonJS((exports2, module2) => {
       return false;
     }
     function toNamespace(regexp) {
-      return regexp
-        .toString()
-        .substring(2, regexp.toString().length - 2)
-        .replace(/\.\*\?$/, '*');
+      return regexp.toString().substring(2, regexp.toString().length - 2).replace(/\.\*\?$/, "*");
     }
     function coerce(val) {
       if (val instanceof Error) {
@@ -3921,158 +4206,131 @@ var require_browser = __commonJS((exports2, module2) => {
   exports2.useColors = useColors;
   exports2.storage = localstorage();
   exports2.colors = [
-    '#0000CC',
-    '#0000FF',
-    '#0033CC',
-    '#0033FF',
-    '#0066CC',
-    '#0066FF',
-    '#0099CC',
-    '#0099FF',
-    '#00CC00',
-    '#00CC33',
-    '#00CC66',
-    '#00CC99',
-    '#00CCCC',
-    '#00CCFF',
-    '#3300CC',
-    '#3300FF',
-    '#3333CC',
-    '#3333FF',
-    '#3366CC',
-    '#3366FF',
-    '#3399CC',
-    '#3399FF',
-    '#33CC00',
-    '#33CC33',
-    '#33CC66',
-    '#33CC99',
-    '#33CCCC',
-    '#33CCFF',
-    '#6600CC',
-    '#6600FF',
-    '#6633CC',
-    '#6633FF',
-    '#66CC00',
-    '#66CC33',
-    '#9900CC',
-    '#9900FF',
-    '#9933CC',
-    '#9933FF',
-    '#99CC00',
-    '#99CC33',
-    '#CC0000',
-    '#CC0033',
-    '#CC0066',
-    '#CC0099',
-    '#CC00CC',
-    '#CC00FF',
-    '#CC3300',
-    '#CC3333',
-    '#CC3366',
-    '#CC3399',
-    '#CC33CC',
-    '#CC33FF',
-    '#CC6600',
-    '#CC6633',
-    '#CC9900',
-    '#CC9933',
-    '#CCCC00',
-    '#CCCC33',
-    '#FF0000',
-    '#FF0033',
-    '#FF0066',
-    '#FF0099',
-    '#FF00CC',
-    '#FF00FF',
-    '#FF3300',
-    '#FF3333',
-    '#FF3366',
-    '#FF3399',
-    '#FF33CC',
-    '#FF33FF',
-    '#FF6600',
-    '#FF6633',
-    '#FF9900',
-    '#FF9933',
-    '#FFCC00',
-    '#FFCC33',
+    "#0000CC",
+    "#0000FF",
+    "#0033CC",
+    "#0033FF",
+    "#0066CC",
+    "#0066FF",
+    "#0099CC",
+    "#0099FF",
+    "#00CC00",
+    "#00CC33",
+    "#00CC66",
+    "#00CC99",
+    "#00CCCC",
+    "#00CCFF",
+    "#3300CC",
+    "#3300FF",
+    "#3333CC",
+    "#3333FF",
+    "#3366CC",
+    "#3366FF",
+    "#3399CC",
+    "#3399FF",
+    "#33CC00",
+    "#33CC33",
+    "#33CC66",
+    "#33CC99",
+    "#33CCCC",
+    "#33CCFF",
+    "#6600CC",
+    "#6600FF",
+    "#6633CC",
+    "#6633FF",
+    "#66CC00",
+    "#66CC33",
+    "#9900CC",
+    "#9900FF",
+    "#9933CC",
+    "#9933FF",
+    "#99CC00",
+    "#99CC33",
+    "#CC0000",
+    "#CC0033",
+    "#CC0066",
+    "#CC0099",
+    "#CC00CC",
+    "#CC00FF",
+    "#CC3300",
+    "#CC3333",
+    "#CC3366",
+    "#CC3399",
+    "#CC33CC",
+    "#CC33FF",
+    "#CC6600",
+    "#CC6633",
+    "#CC9900",
+    "#CC9933",
+    "#CCCC00",
+    "#CCCC33",
+    "#FF0000",
+    "#FF0033",
+    "#FF0066",
+    "#FF0099",
+    "#FF00CC",
+    "#FF00FF",
+    "#FF3300",
+    "#FF3333",
+    "#FF3366",
+    "#FF3399",
+    "#FF33CC",
+    "#FF33FF",
+    "#FF6600",
+    "#FF6633",
+    "#FF9900",
+    "#FF9933",
+    "#FFCC00",
+    "#FFCC33"
   ];
   function useColors() {
-    if (
-      typeof window !== 'undefined' &&
-      window.process &&
-      (window.process.type === 'renderer' || window.process.__nwjs)
-    ) {
+    if (typeof window !== "undefined" && window.process && (window.process.type === "renderer" || window.process.__nwjs)) {
       return true;
     }
-    if (
-      typeof navigator !== 'undefined' &&
-      navigator.userAgent &&
-      navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)
-    ) {
+    if (typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)) {
       return false;
     }
-    return (
-      (typeof document !== 'undefined' &&
-        document.documentElement &&
-        document.documentElement.style &&
-        document.documentElement.style.WebkitAppearance) ||
-      (typeof window !== 'undefined' &&
-        window.console &&
-        (window.console.firebug || (window.console.exception && window.console.table))) ||
-      (typeof navigator !== 'undefined' &&
-        navigator.userAgent &&
-        navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) &&
-        parseInt(RegExp.$1, 10) >= 31) ||
-      (typeof navigator !== 'undefined' &&
-        navigator.userAgent &&
-        navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/))
-    );
+    return typeof document !== "undefined" && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance || typeof window !== "undefined" && window.console && (window.console.firebug || window.console.exception && window.console.table) || typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31 || typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/);
   }
   function formatArgs(args) {
-    args[0] =
-      (this.useColors ? '%c' : '') +
-      this.namespace +
-      (this.useColors ? ' %c' : ' ') +
-      args[0] +
-      (this.useColors ? '%c ' : ' ') +
-      '+' +
-      module2.exports.humanize(this.diff);
+    args[0] = (this.useColors ? "%c" : "") + this.namespace + (this.useColors ? " %c" : " ") + args[0] + (this.useColors ? "%c " : " ") + "+" + module2.exports.humanize(this.diff);
     if (!this.useColors) {
       return;
     }
-    const c = 'color: ' + this.color;
-    args.splice(1, 0, c, 'color: inherit');
+    const c = "color: " + this.color;
+    args.splice(1, 0, c, "color: inherit");
     let index = 0;
     let lastC = 0;
     args[0].replace(/%[a-zA-Z%]/g, (match) => {
-      if (match === '%%') {
+      if (match === "%%") {
         return;
       }
       index++;
-      if (match === '%c') {
+      if (match === "%c") {
         lastC = index;
       }
     });
     args.splice(lastC, 0, c);
   }
-  exports2.log = console.debug || console.log || (() => {});
+  exports2.log = console.debug || console.log || (() => {
+  });
   function save(namespaces) {
     try {
       if (namespaces) {
-        exports2.storage.setItem('debug', namespaces);
+        exports2.storage.setItem("debug", namespaces);
       } else {
-        exports2.storage.removeItem('debug');
+        exports2.storage.removeItem("debug");
       }
-    } catch (error) {}
+    } catch (error) {
+    }
   }
   function load() {
     let r;
     try {
-      r = exports2.storage.getItem('debug');
-    } catch (error) {}
-    if (!r && typeof process !== 'undefined' && 'env' in process) {
+      r = exports2.storage.getItem("debug");
+    } catch (error) {
+    }
+    if (!r && typeof process !== "undefined" && "env" in process) {
       r = process.env.DEBUG;
     }
     return r;
@@ -4080,23 +4338,24 @@ var require_browser = __commonJS((exports2, module2) => {
   function localstorage() {
     try {
       return localStorage;
-    } catch (error) {}
+    } catch (error) {
+    }
   }
   module2.exports = require_common()(exports2);
-  const { formatters } = module2.exports;
-  formatters.j = function (v) {
+  const {formatters} = module2.exports;
+  formatters.j = function(v) {
     try {
       return JSON.stringify(v);
     } catch (error) {
-      return '[UnexpectedJSONParseError]: ' + error.message;
+      return "[UnexpectedJSONParseError]: " + error.message;
     }
   };
 });
 
 // ../../node_modules/debug/src/node.js
 var require_node = __commonJS((exports2, module2) => {
-  const tty = require('tty');
-  const util = require('util');
+  const tty = require("tty");
+  const util = require("util");
   exports2.init = init;
   exports2.log = log;
   exports2.formatArgs = formatArgs;
@@ -4183,57 +4442,53 @@ var require_node = __commonJS((exports2, module2) => {
         214,
         215,
         220,
-        221,
+        221
       ];
     }
-  } catch (error) {}
-  exports2.inspectOpts = Object.keys(process.env)
-    .filter((key) => {
-      return /^debug_/i.test(key);
-    })
-    .reduce((obj, key) => {
-      const prop = key
-        .substring(6)
-        .toLowerCase()
-        .replace(/_([a-z])/g, (_, k) => {
-          return k.toUpperCase();
-        });
-      let val = process.env[key];
-      if (/^(yes|on|true|enabled)$/i.test(val)) {
-        val = true;
-      } else if (/^(no|off|false|disabled)$/i.test(val)) {
-        val = false;
-      } else if (val === 'null') {
-        val = null;
-      } else {
-        val = Number(val);
-      }
-      obj[prop] = val;
-      return obj;
-    }, {});
+  } catch (error) {
+  }
+  exports2.inspectOpts = Object.keys(process.env).filter((key) => {
+    return /^debug_/i.test(key);
+  }).reduce((obj, key) => {
+    const prop = key.substring(6).toLowerCase().replace(/_([a-z])/g, (_, k) => {
+      return k.toUpperCase();
+    });
+    let val = process.env[key];
+    if (/^(yes|on|true|enabled)$/i.test(val)) {
+      val = true;
+    } else if (/^(no|off|false|disabled)$/i.test(val)) {
+      val = false;
+    } else if (val === "null") {
+      val = null;
+    } else {
+      val = Number(val);
+    }
+    obj[prop] = val;
+    return obj;
+  }, {});
   function useColors() {
-    return 'colors' in exports2.inspectOpts ? Boolean(exports2.inspectOpts.colors) : tty.isatty(process.stderr.fd);
+    return "colors" in exports2.inspectOpts ? Boolean(exports2.inspectOpts.colors) : tty.isatty(process.stderr.fd);
   }
   function formatArgs(args) {
-    const { namespace: name2, useColors: useColors2 } = this;
+    const {namespace: name2, useColors: useColors2} = this;
     if (useColors2) {
       const c = this.color;
-      const colorCode = '[3' + (c < 8 ? c : '8;5;' + c);
+      const colorCode = "[3" + (c < 8 ? c : "8;5;" + c);
       const prefix = `  ${colorCode};1m${name2} [0m`;
-      args[0] = prefix + args[0].split('\n').join('\n' + prefix);
-      args.push(colorCode + 'm+' + module2.exports.humanize(this.diff) + '[0m');
+      args[0] = prefix + args[0].split("\n").join("\n" + prefix);
+      args.push(colorCode + "m+" + module2.exports.humanize(this.diff) + "[0m");
     } else {
-      args[0] = getDate() + name2 + ' ' + args[0];
+      args[0] = getDate() + name2 + " " + args[0];
     }
   }
   function getDate() {
     if (exports2.inspectOpts.hideDate) {
-      return '';
+      return "";
     }
-    return new Date().toISOString() + ' ';
+    return new Date().toISOString() + " ";
   }
   function log(...args) {
-    return process.stderr.write(util.format(...args) + '\n');
+    return process.stderr.write(util.format(...args) + "\n");
   }
   function save(namespaces) {
     if (namespaces) {
@@ -4253,12 +4508,12 @@ var require_node = __commonJS((exports2, module2) => {
     }
   }
   module2.exports = require_common()(exports2);
-  const { formatters } = module2.exports;
-  formatters.o = function (v) {
+  const {formatters} = module2.exports;
+  formatters.o = function(v) {
     this.inspectOpts.colors = this.useColors;
-    return util.inspect(v, this.inspectOpts).replace(/\s*\n\s*/g, ' ');
+    return util.inspect(v, this.inspectOpts).replace(/\s*\n\s*/g, " ");
   };
-  formatters.O = function (v) {
+  formatters.O = function(v) {
     this.inspectOpts.colors = this.useColors;
     return util.inspect(v, this.inspectOpts);
   };
@@ -4266,7 +4521,7 @@ var require_node = __commonJS((exports2, module2) => {
 
 // ../../node_modules/debug/src/index.js
 var require_src = __commonJS((exports2, module2) => {
-  if (typeof process === 'undefined' || process.type === 'renderer' || process.browser === true || process.__nwjs) {
+  if (typeof process === "undefined" || process.type === "renderer" || process.browser === true || process.__nwjs) {
     module2.exports = require_browser();
   } else {
     module2.exports = require_node();
@@ -4276,20 +4531,20 @@ var require_src = __commonJS((exports2, module2) => {
 // index.ts
 __export(exports, {
   greet: () => greet,
-  greetCommand: () => command,
+  greetCommand: () => command
 });
 
 // src/commands/greet.ts
 const ora = __toModule(require_ora());
 
 // src/utils/constants.ts
-const SUCCESS_SYMBOL = '\u{1F4AB}';
+const SUCCESS_SYMBOL = "\u{1F4AB}";
 
 // src/utils/debug.ts
 const debug = __toModule(require_src());
 
 // package.json
-var name = '@tool/cli';
+var name = "@mono/cli";
 
 // src/utils/debug.ts
 function logger(nameSpace) {
@@ -4299,14 +4554,14 @@ function logger(nameSpace) {
 }
 
 // src/commands/greet.ts
-const debug4 = logger('generate');
-const greet = async ({ input }) => `Greetings ${input}`;
+const debug4 = logger("generate");
+const greet = async ({input}) => `Greetings ${input}`;
 const command = async (input) => {
-  debug4('input:', input);
-  const loader = ora.default('loading...').start();
+  debug4("input:", input);
+  const loader = ora.default("loading...").start();
   try {
-    const greeting = await greet({ input });
-    loader.stopAndPersist({ text: `we found greetings: ${greeting}`, symbol: SUCCESS_SYMBOL });
+    const greeting = await greet({input});
+    loader.stopAndPersist({text: `we found greetings: ${greeting}`, symbol: SUCCESS_SYMBOL});
   } catch (e) {
     loader.fail(`We encountered an error: ${e}`);
   }

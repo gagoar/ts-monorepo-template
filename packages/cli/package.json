@@ -1,5 +1,5 @@
 {
-  "name": "@tool/cli",
+  "name": "@mono/cli",
   "version": "0.0.1",
   "repository": "git@github.com:webedx-spark/web-dependency-migration.git",
   "private": true,
