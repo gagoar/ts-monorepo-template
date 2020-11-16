@@ -1,8 +1,7 @@
 <p align="center">
-  <h3 align="center">Web Dependency Migration tool</h3>
+  <h3 align="center">Basic template for Mono Repo</h3>
 
   <p align="center">
-      🔧 set of tools to simplify dependency migration on web 🔧 
     <br />
     <a href="https://github.com/gagoar/ts-monorepo-template#table-of-contents"><strong>Explore the docs »</strong></a>
     <br />
