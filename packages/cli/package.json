@@ -40,7 +40,7 @@
   "author": "Gago <xeroice@gmail.com>",
   "dependencies": {
     "commander": "6.2.0",
-    "cosmiconfig": "7.0.0",
+    "cosmiconfig": "7.1.0",
     "debug": "4.2.0",
     "ora": "5.1.0"
   }
